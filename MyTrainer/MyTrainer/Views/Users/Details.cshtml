@@ -1,0 +1,50 @@
+﻿@model MyTrainer.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUsers.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeightFt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeightFt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeightIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeightIn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

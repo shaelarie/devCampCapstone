@@ -1,0 +1,37 @@
+Week 1 features:
+-As a user I want a plan devloped for me to reach my goals
+I want to be able to change my goal based on the progress Im seeing
+-As a user I need a calender to organize my workout schedule to keep me on track
+-As a user I want to be able to choose what I eat. I need a meal plan to fit my needs/diet
+restrictions
+
+---------Week 1 timeline:
+-Wed - Implement nutritionix Api to get food macros and create custom meal plans
+and provide food substitutions for each ingredient in each meal plan
+
+-Thurs-Fri - Implement Full calender Api to help user organize their schedule and find
+time to workout
+------------------------
+Week 2 features:
+-As a user I want Ideas for workouts to do to help me get to my goal
+-As a user I want to be able to see my progress, not just a number on a scale.
+I want to be able to upload photos of my progress to see how far Ive come
+-As a user I would like to talk to other people who are going through the same stuggles as
+I am to see how theyve overcome them and maybe I can help others as well
+
+--------Week 2 timeline:
+-Mon - Create workout plan and database of workouts for each goal type & Create
+User survey to choose meal plan/fitness goals
+-Tues -Enable photo upload to user profile view so user can see their progress && Make
+motivational messages to display on user profile
+-Wed-Thurs - make chatroom for users to converse
+-Fri - final visual touches and debug
+
+
+
+
+
+
+-----Research Links-------
+https://healthyeater.com/how-to-calculate-your-macros
+http://www.aspsnippets.com/Articles/Upload-images-to-folder-and-display-uploaded-images-in-ASPNet-GridView-using-C-and-VBNet.aspx
