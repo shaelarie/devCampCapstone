@@ -3,7 +3,7 @@ namespace MyTrainer.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class cleanTable : DbMigration
+    public partial class yt : DbMigration
     {
         public override void Up()
         {
@@ -149,6 +149,10 @@ namespace MyTrainer.Migrations
                         eventDescription = c.String(),
                         start = c.String(),
                         end = c.String(),
+                        startTime = c.String(),
+                        endTime = c.String(),
+                        background = c.String(),
+                        editable = c.Boolean(nullable: false),
                         startDate = c.DateTime(),
                         endDate = c.DateTime(),
                         UserId = c.Int(nullable: false),

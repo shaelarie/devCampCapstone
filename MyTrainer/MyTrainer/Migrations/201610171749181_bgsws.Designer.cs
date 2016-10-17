@@ -7,13 +7,13 @@ namespace MyTrainer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class cleanTables : IMigrationMetadata
+    public sealed partial class bgsws : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(cleanTables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(bgsws));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610142214206_cleanTables"; }
+            get { return "201610171749181_bgsws"; }
         }
         
         string IMigrationMetadata.Source

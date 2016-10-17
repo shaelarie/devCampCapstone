@@ -200,17 +200,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserSchedulesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610142101581_cleanTable.cs" />
-    <Compile Include="Migrations\201610142101581_cleanTable.Designer.cs">
-      <DependentUpon>201610142101581_cleanTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610142214206_cleanTables.cs" />
-    <Compile Include="Migrations\201610142214206_cleanTables.Designer.cs">
-      <DependentUpon>201610142214206_cleanTables.cs</DependentUpon>
+    <Compile Include="Migrations\201610172233281_yt.cs" />
+    <Compile Include="Migrations\201610172233281_yt.Designer.cs">
+      <DependentUpon>201610172233281_yt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -409,10 +406,14 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\UserSchedules\Create.cshtml" />
+    <Content Include="Views\UserSchedules\Delete.cshtml" />
+    <Content Include="Views\UserSchedules\Details.cshtml" />
+    <Content Include="Views\UserSchedules\Edit.cshtml" />
+    <Content Include="Views\UserSchedules\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UserSchedules\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -422,15 +423,12 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610142101581_cleanTable.resx">
-      <DependentUpon>201610142101581_cleanTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610142214206_cleanTables.resx">
-      <DependentUpon>201610142214206_cleanTables.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <EmbeddedResource Include="Migrations\201610172233281_yt.resx">
+      <DependentUpon>201610172233281_yt.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,167 +1,46 @@
-﻿@model IEnumerable<MyTrainer.Models.UserSchedule>
+﻿@model IEnumerable<MyTrainer.Models.User>
 
 @{
     ViewBag.Title = "Index";
 }
-
-
-@section scripts{
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#calendar').fullCalendar({
-        theme: true,
-        header: {
-            left: 'prev, next today',
-            center:'title',
-            right: 'month, agendaWeek, agendaDay'
-
-        },
-            defaulView: 'month',
-            editable: true,
-            allDaySlot: false,
-            selectable: true,
-            slotMinutes: 15,
-            events: "/UsersSchedules/getevents"
-        });
-    });
-</script>
-}
-
 <h2>Index</h2>
 
 <table class="table">
     <tr>
         <th style="width: 20%; text-align: center;">
-            @Html.DisplayNameFor(model => model.User.Weight)
+            @Html.DisplayNameFor(model => model.Weight)
         </th>
         <th style="width: 20%; text-align: center;">
-            @Html.DisplayNameFor(model => model.User.HeightFt)
+            @Html.DisplayNameFor(model => model.HeightFt)
         </th>
         <th style="width: 20%; text-align: center;">
-            @Html.DisplayNameFor(model => model.User.Weight)
+            @Html.DisplayNameFor(model => model.Weight)
         </th>
         <th style="width: 40%;"></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        @Html.HiddenFor(modelItem => item.User.Id)
-        @Html.HiddenFor(modelItem => item.User.Username)
-        @Html.HiddenFor(modelItem => item.User)
-        @Html.HiddenFor(modelItem => item.UserId)
         @Html.HiddenFor(modelItem => item.Id)
-        @Html.HiddenFor(modelItem => item.User.LoginId)
+        @Html.HiddenFor(modelItem => item.Username)
+        @Html.HiddenFor(modelItem => item.LoginId)
 
 
         <td style="width: 20%; text-align: center;">
-            @Html.DisplayFor(modelItem => item.User.Weight)
+            @Html.DisplayFor(modelItem => item.Weight)
         </td>
         <td style="width: 20%; text-align: center;">
-            @Html.DisplayFor(modelItem => item.User.HeightFt)
+            @Html.DisplayFor(modelItem => item.HeightFt)
         </td>
         <td style="width: 20%; text-align: center;">
-            @Html.DisplayFor(modelItem => item.User.HeightIn)
+            @Html.DisplayFor(modelItem => item.HeightIn)
         </td>
         <td style="width: 40%; text-align: right;">
-            @Html.ActionLink("Update Your Information", "Edit", new { id=item.User.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.User.Id })
+            @Html.ActionLink("Update Your Information", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id })
         </td>
     </tr>
 }
 
 
 </table>
-
-<table class="table">
-    <tr>
-        <th style="width: 20%; text-align: center;">
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th style="width: 20%; text-align: center;">
-            @Html.DisplayNameFor(model => model.startDate)
-        </th>
-        <th style="width: 20%; text-align: center;">
-            @Html.DisplayNameFor(model => model.endDate)
-        </th>
-        <th style="width: 40%;"></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            @Html.HiddenFor(modelItem => item.User.Id)
-            @Html.HiddenFor(modelItem => item.User)
-            @Html.HiddenFor(modelItem => item.UserId)
-            @Html.HiddenFor(modelItem => item.Id)
-            @Html.HiddenFor(modelItem => item.User.LoginId)
-            @Html.HiddenFor(modelItem => item.User.Username)
-            <td style="width: 20%; text-align: center;">
-                @Html.DisplayFor(modelItem => item.title)
-            </td>
-            <td style="width: 20%; text-align: center;">
-                @Html.DisplayFor(modelItem => item.startDate)
-            </td>
-            <td style="width: 20%; text-align: center;">
-                @Html.DisplayFor(modelItem => item.endDate)
-            </td>
-            <td style="width: 40%; text-align: right;">
-                @Html.ActionLink("Update Your Information", "Edit", new { id = item.User.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.User.Id })
-            </td>
-        </tr>
-    }
-
-
-</table>
-
-<div class="col-md-12">
-    <div id="calendar"></div>
-</div>
-
-<div>
-    <form id="newEventForm" class="well" action="/Users/SaveEvent" method="POST">
-        <input type="hidden" id="eventId" /><br />
-        <input type="hidden" id="userId" name="UserId" /><br/>
-        <label>Title</label>
-        <input type="text" id="newEventDescription" name="description" /><br/>
-        <label>Start Date</label>
-        <input type="date" id="newEventStartDate" name="start" /><br/>
-        <input type="date" id="newEventEndDat" name="end" /><br/>
-        <label>Start Time</label>
-        <input type="time" id="newEventStartTime" name="startTime" /><br/>
-        <label>End Time</label>
-        <input type="time" id="newEventEndTime" name="endTime" /><br/>
-        <label>Color</label>
-        <input type="text" id="newEventColor" name="background" /><br/>
-        <input type="submit" id="submitButton" />
-    </form>
-</div>
-
-<div id="changeEventForm" style="display: none;">
-    <div><h3>Edit</h3></div>
-    <div>
-        <form id="updateEventForm" class="well">
-            <input type="hidden" id="oldEventID" name="eventId"><br />
-            <input type="hidden" id="userId" name="UserId"><br />
-            <label>Event title</label>
-            <input type="text" id="oldEventTitle" name="title"><br />
-            <label>Description</label>
-            <input type="text" id="oldEventDescription" name="description"><br />
-            <label>Scheduled start date</label>
-            <input type="date" id="oldEventStartDate" name="start"><br />
-            <label>Scheduled start time</label>
-            <input type="time" id="oldEventStartTime" name="startTime"><br />
-            <label>Scheduled end date</label>
-            <input type="date" id="oldEventEndDate" name="end"><br />
-            <label>Scheduled end time</label>
-            <input type="time" id="oldEventEndTime" name="endTime"><br />
-            <label>Event Color</label>
-            <input type="text" id="oldEventColor" name="background"><br />
-            <button type="submit" formmethod="post" formaction="/Users/editEvents">Update</button>
-            <button type="submit" formmethod="post" formaction="/Users/DeleteEvent">Delete</button>
-            <button type="submit" formmethod="post" formaction="/Users/SaveEvent">Create New</button>
-            <button onclick="$('#calendar').fullCalendar('refetchEvents')">Cancel</button>
-
-        </form>
-    </div>
-</div>

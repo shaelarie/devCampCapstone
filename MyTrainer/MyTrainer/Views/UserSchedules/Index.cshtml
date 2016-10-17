@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1 style="text-align: center">Calendar</h1>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="calendar" width="80%"></div>
+    </div>
+</div>
+
+
+
+
+
+<div id="eventForm" style="display: none;">
+    <div><h3>Add new event</h3></div>
+    <div>
+        <form id="newEventForm" class="well" action="/UserSchedules/SaveEvent" method="POST">
+            <input type="hidden" id="eventId"><br />
+            <input type="hidden" id="userId" name="UserId"><br />
+            <label>Event title</label>
+            <input type="text" id="newEventTitle" placeholder="Title here" name="title"><br />
+            <label>Description</label>
+            <input type="text" id="newEventDescription" name="eventDescription"><br />
+            <label>Scheduled start date</label>
+            <input type="date" id="newEventStartDate" name="start"><br />
+            <label>Scheduled start time</label>
+            <input type="time" id="newEventStartTime" name="startTime"><br />
+            <label>Scheduled end date</label>
+            <input type="date" id="newEventEndDate" name="end"><br />
+            <label>Scheduled end time</label>
+            <input type="time" id="newEventEndTime" name="endTime"><br />
+            <label>Event Color</label>
+            <input type="text" id="newEventColor" name="background"><br />
+            <input type="Submit" id="submitButton">
+        </form>
+    </div>
+</div>
+
+<div id="changeEventForm" style="display: none;">
+    <div><h3>Update this event</h3></div>
+    <div>
+        <form id="updateEventForm" class="well">
+            <input type="hidden" id="oldEventID" name="eventId><br />
+            <input type="hidden" id="userId" name="UserId"><br />
+            <label>Event title</label>
+            <input type="text" id="oldEventTitle" name="title"><br />
+            <label>Description</label>
+            <input type="text" id="oldEventDescription" name="eventDescription"><br />
+            <label>Scheduled start date</label>
+            <input type="date" id="oldEventStartDate" name="start"><br />
+            <label>Scheduled start time</label>
+            <input type="time" id="oldEventStartTime" name="startTime"><br />
+            <label>Scheduled end date</label>
+            <input type="date" id="oldEventEndDate" name="end"><br />
+            <label>Scheduled end time</label>
+            <input type="time" id="oldEventEndTime" name="endTime"><br />
+            <label>Event Color</label>
+            <input type="text" id="oldEventColor" name="background"><br />
+            <button type="submit" formmethod="post" formaction="/UserSchedules/UpdateEvent">Update</button>
+            <button type="submit" formmethod="post" formaction="/UserSchedules/DeleteEvent">Delete</button>
+            <button type="submit" formmethod="post" formaction="/UserSchedules/SaveEvent">Create New</button>
+            <button onclick="$('#calendar').fullCalendar('refetchEvents')">Cancel</button>
+
+        </form>
+    </div>
+</div>
+
+
+@section scripts{
+
+    <link rel="stylesheet" type="text/css" href="~/Content/fullcalendar.css">
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
+    <script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
+    <script src='~/Scripts/locale-all.js'></script>
+    <script src='~/Scripts/combodate.js'></script>
+
+    <script type="text/javascript">
+
+            $(document).ready(function () {
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay,listWeek'
+                    },
+                    themeButtonIcons: {
+                        prev: 'circle-triangle-w',
+                        next: 'circle-triangle-e',
+                        prevYear: 'seek-prev',
+                        nextYear: 'seek-next'
+                    },
+                    contentHeight: 'auto',
+                    theme: true,
+                    eventColor: 'dark blue',
+                    nowIndicator: true,
+                    defaultView: 'month',
+                    editable: true,
+                    lazyFetching: true,
+                    timezone: 'local',
+                    allDay: true,
+                    events: @Html.Raw(Model.data),
+                    dayClick: function (date, allDay, jsEvent, view) {
+                        $('#eventForm').show();
+                        $('#newEventTitle').focus();
+                        $('name=startDate').val(date);
+                        $('#newEventTitle').val("");
+
+                    },
+                    eventClick: function (calEvent, jsEvent, view) {
+                        $('#changeEventForm').show();
+                        $('#oldEventTitle').focus();
+                        $('#userId').val(calEvent.UserId);
+                        $('#oldEventID').val(calEvent.eventId);
+                        $('#oldEventTitle').val(calEvent.title);
+                        $('#oldEventDescription').val(calEvent.eventDescription);
+                        $('#oldEventStartDate').val(calEvent.start);
+                        $('#oldEventStartTime').val(calEvent.startTime);
+                        $('#oldEventEndDate').val(calEvent.end);
+                        $('#oldEventEndTime').val(calEvent.endTime);
+                        $('#oldEventColor').val(calEvent.bacground);
+
+                    },
+                });
+            })
+
+            function ClearNewEventFormValues() {
+                $('eventId').val("");
+                $('#eventTitle').val("");
+                $('#eventDescription').val("");
+                $('#eventStartDate').val("");
+                $('#eventStartTime').val("");
+                $('#eventEndDate').val("");
+                $('#eventEndTime').val("");
+            }
+
+    </script>
+}
