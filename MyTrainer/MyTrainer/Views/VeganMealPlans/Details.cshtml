@@ -1,0 +1,42 @@
+﻿@model MyTrainer.Models.VeganMealPlan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VeganMealPlan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProteinIntake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProteinIntake)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarbIntake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarbIntake)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatIntake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatIntake)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

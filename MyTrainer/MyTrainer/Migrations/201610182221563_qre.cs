@@ -3,10 +3,21 @@ namespace MyTrainer.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class yt : DbMigration
+    public partial class qre : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.BasicMealPlans",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ProteinIntake = c.Double(),
+                        CarbIntake = c.Double(),
+                        FatIntake = c.Double(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.Goals",
                 c => new
@@ -25,6 +36,7 @@ namespace MyTrainer.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         WorkoutName = c.String(),
                         Description = c.String(),
+                        NumberOfDays = c.Int(nullable: false),
                         Reps = c.Int(nullable: false),
                         Sets = c.Int(nullable: false),
                         Distance = c.Double(nullable: false),
@@ -37,9 +49,39 @@ namespace MyTrainer.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Basic = c.Boolean(nullable: false),
-                        Vegetarian = c.Boolean(nullable: false),
-                        Vegan = c.Boolean(nullable: false),
+                        MealPlanType = c.String(),
+                        mealPlanDetails = c.String(),
+                        VegetarianId = c.Int(),
+                        VeganId = c.Int(),
+                        BasicId = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.BasicMealPlans", t => t.BasicId)
+                .ForeignKey("dbo.VeganMealPlans", t => t.VeganId)
+                .ForeignKey("dbo.VegetarianMealPlans", t => t.VegetarianId)
+                .Index(t => t.VegetarianId)
+                .Index(t => t.VeganId)
+                .Index(t => t.BasicId);
+            
+            CreateTable(
+                "dbo.VeganMealPlans",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ProteinIntake = c.Double(),
+                        CarbIntake = c.Double(),
+                        FatIntake = c.Double(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.VegetarianMealPlans",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ProteinIntake = c.Double(),
+                        CarbIntake = c.Double(),
+                        FatIntake = c.Double(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -66,10 +108,16 @@ namespace MyTrainer.Migrations
                         HeightFt = c.Int(),
                         HeightIn = c.Int(),
                         LoginId = c.String(maxLength: 128),
+                        GoalId = c.Int(nullable: false),
+                        MealPlanId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.LoginId)
-                .Index(t => t.LoginId);
+                .ForeignKey("dbo.Goals", t => t.GoalId, cascadeDelete: true)
+                .ForeignKey("dbo.MealPlans", t => t.MealPlanId, cascadeDelete: true)
+                .Index(t => t.LoginId)
+                .Index(t => t.GoalId)
+                .Index(t => t.MealPlanId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -181,10 +229,15 @@ namespace MyTrainer.Migrations
             DropForeignKey("dbo.UserSchedules", "UserId", "dbo.Users");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.UserPhotos", "UserId", "dbo.Users");
+            DropForeignKey("dbo.Users", "MealPlanId", "dbo.MealPlans");
+            DropForeignKey("dbo.Users", "GoalId", "dbo.Goals");
             DropForeignKey("dbo.Users", "LoginId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.MealPlans", "VegetarianId", "dbo.VegetarianMealPlans");
+            DropForeignKey("dbo.MealPlans", "VeganId", "dbo.VeganMealPlans");
+            DropForeignKey("dbo.MealPlans", "BasicId", "dbo.BasicMealPlans");
             DropForeignKey("dbo.WorkoutsGoals", "Goals_Id", "dbo.Goals");
             DropForeignKey("dbo.WorkoutsGoals", "Workouts_Id", "dbo.Workouts");
             DropIndex("dbo.WorkoutsGoals", new[] { "Goals_Id" });
@@ -196,8 +249,13 @@ namespace MyTrainer.Migrations
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.Users", new[] { "MealPlanId" });
+            DropIndex("dbo.Users", new[] { "GoalId" });
             DropIndex("dbo.Users", new[] { "LoginId" });
             DropIndex("dbo.UserPhotos", new[] { "UserId" });
+            DropIndex("dbo.MealPlans", new[] { "BasicId" });
+            DropIndex("dbo.MealPlans", new[] { "VeganId" });
+            DropIndex("dbo.MealPlans", new[] { "VegetarianId" });
             DropTable("dbo.WorkoutsGoals");
             DropTable("dbo.UserSchedules");
             DropTable("dbo.AspNetRoles");
@@ -207,9 +265,12 @@ namespace MyTrainer.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Users");
             DropTable("dbo.UserPhotos");
+            DropTable("dbo.VegetarianMealPlans");
+            DropTable("dbo.VeganMealPlans");
             DropTable("dbo.MealPlans");
             DropTable("dbo.Workouts");
             DropTable("dbo.Goals");
+            DropTable("dbo.BasicMealPlans");
         }
     }
 }

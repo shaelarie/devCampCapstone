@@ -21,6 +21,12 @@ namespace MyTrainer.Models
         [ForeignKey("ApplicationUsers")]
         public string LoginId { get; set; }
         public ApplicationUser ApplicationUsers { get; set; }
+        [ForeignKey("Goals")]
+        public int GoalId { get; set; }
+        public Goals Goals { get; set; }
+        [ForeignKey("MealPlan")]
+        public int MealPlanId { get; set; }
+        public MealPlan MealPlan { get; set; }
     }
 
 }

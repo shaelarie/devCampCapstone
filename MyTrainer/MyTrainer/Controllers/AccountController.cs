@@ -161,17 +161,34 @@ namespace MyTrainer.Controllers
                 if (result.Succeeded)
                 {
                     var db = new ApplicationDbContext();
-
+                    var basic = new BasicMealPlan();
+                    var vegetarien = new VegetarianMealPlan();
+                    var vegan = new VeganMealPlan();
+                    var UserMealPlan = new MealPlan
+                    {
+                        BasicId = basic.Id,
+                        VegetarianId = vegetarien.Id,
+                        VeganId = vegan.Id
+                        
+                    };
+                    var goals = new Goals();
                     var UserProfile = new User
                     {
                         Username = model.Username,
                         LoginId = user.Id,
+                        MealPlanId = UserMealPlan.Id,
+                        GoalId = goals.Id
                     };
                     var schedule = new UserSchedule
                     {
                         User = UserProfile,
                         UserId = UserProfile.Id
                     };
+                    db.BasicDb.Add(basic);
+                    db.VegetarianDb.Add(vegetarien);
+                    db.VeganDb.Add(vegan);
+                    db.GoalDb.Add(goals);
+                    db.MealDb.Add(UserMealPlan);
                     db.ScheduleDb.Add(schedule);
                     db.UserDb.Add(UserProfile);
                     await db.SaveChangesAsync();
