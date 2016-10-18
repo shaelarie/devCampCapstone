@@ -36,13 +36,16 @@ namespace MyTrainer.Controllers
             MealPlan mealPlan = db.MealDb.Find(id);
             if(mealPlan.MealPlanType == "Basic")
             {
-
+                return RedirectToAction("Index", "BasicMealPlans");
             }
             if(mealPlan.MealPlanType == "Vegetarian")
             {
-
+                return RedirectToAction("Index", "VegetarianMealPlans");
             }
             if(mealPlan.MealPlanType == "Vegan")
+            {
+                return RedirectToAction("Index", "VeganMealPlans");
+            }
             if (mealPlan == null)
             {
                 return HttpNotFound();

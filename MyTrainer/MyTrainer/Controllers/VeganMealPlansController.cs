@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MyTrainer.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MyTrainer.Controllers
 {
@@ -17,7 +18,11 @@ namespace MyTrainer.Controllers
         // GET: VeganMealPlans
         public ActionResult Index()
         {
-            return View(db.VeganDb.ToList());
+            string userId = User.Identity.GetUserId();
+            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            MealPlan findPlan = db.MealDb.FirstOrDefault(x => x.Id == currentUser.MealPlanId);
+            var plan = db.VeganDb.Where(x => x.Id == findPlan.VeganId).Select(x => x).ToList();
+            return View(plan);
         }
 
         // GET: VeganMealPlans/Details/5
