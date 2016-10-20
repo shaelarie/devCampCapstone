@@ -20,6 +20,13 @@
         @Html.HiddenFor(model => model.Username)
         @Html.HiddenFor(model => model.MealPlanId)
         @Html.HiddenFor(model => model.GoalId)
+        @Html.HiddenFor(model => model.DailyCalorieIntake)
+        @Html.HiddenFor(model => model.TDEE)
+        @Html.HiddenFor(model => model.BMI)
+        @Html.HiddenFor(model => model.ProteinIntake)
+        @Html.HiddenFor(model => model.FatIntake)
+        @Html.HiddenFor(model => model.CarbIntake)
+        @Html.HiddenFor(model => model.BMR)
         <div class="form-group">
             @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -27,7 +34,13 @@
                 @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            How many days a week will you be working out?
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.WorkoutAmount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.WorkoutAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.HeightFt, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -41,6 +54,26 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.HeightIn, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.HeightIn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                Male
+                <div class="radio">
+                    @Html.RadioButtonFor(model => model.Gender,"Male", new { htmlAttributes = new { @class = "form-control" } })
+                    <input checked="checked" id="Gender" name="Gender" type="radio" value="Male" />
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                Female
+                <div class="radio">
+                    @Html.RadioButtonFor(model => model.Gender,"Female", new { htmlAttributes = new { @class = "form-control" } })
+                    <input id="Gender" name="Gender" type="radio" value="Female" />
+                </div>
+
             </div>
         </div>
         <div class="form-group">

@@ -18,6 +18,15 @@ namespace MyTrainer.Models
         public int? HeightFt { get; set; }
         [Display(Name = "height in inches")]
         public int? HeightIn { get; set; }
+        public double? TDEE { get; set; }
+        public double? BMR { get; set; }
+        public int? WorkoutAmount { get; set; }
+        public double? DailyCalorieIntake { get; set; }
+        public double? BMI { get; set; }
+        public double? ProteinIntake { get; set; }
+        public double? FatIntake { get; set; }
+        public double? CarbIntake { get; set; }
+        public string Gender { get; set; }
         [ForeignKey("ApplicationUsers")]
         public string LoginId { get; set; }
         public ApplicationUser ApplicationUsers { get; set; }

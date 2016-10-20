@@ -11,9 +11,7 @@ namespace MyTrainer.Models
     {
         [Key]
         public int Id { get; set; }
-        public bool LoseWeight { get; set; }
-        public bool GainMuscle { get; set; }
-        public bool Maintain { get; set; }
+        public string UserGoal { get; set; }
         public ICollection<Workouts> UsersWorkouts { get; set; }
     }
 }

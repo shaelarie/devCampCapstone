@@ -43,3 +43,58 @@
 }
 
 </table>
+<div class="col-md-10" id="meal1" style="height: 300px;"></div>
+
+<script src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+
+    var Url = "https://trackapi.nutritionix.com/v2/natural/nutrients";
+    var Meal1 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "" + Url,
+        "method": "POST",
+        "headers": {
+            "content-type": "application/json",
+            "accept": "application/json",
+            "x-app-id": "15d7e8ca",
+            "x-app-key": "b87fefe221a8b57acbd70ca8226aea80",
+            "x-remote-user-id": "0",
+            "cache-control": "no-cache",
+            "postman-token": "98541ddb-bb57-f864-32b5-c32911147ea0"
+        },
+        "processData": false,
+        "data": "{\n  \"query\": \"chicken breast\",\n  \"num_servings\": 1,\n  \"aggregate\": \"string\",\n  \"line_delimited\": false,\n  \"timezone\": \"US/Eastern\",\n  \"consumed_at\": null,\n  \"lat\": null,\n  \"lng\": null,\n  \"meal_type\": 0\n}"
+    }
+
+
+    $.ajax(Meal1).done(function (response) {
+        console.log(response);
+     });
+
+    var settings2 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "" + Url,
+        "method": "POST",
+        "headers": {
+            "content-type": "application/json",
+            "accept": "application/json",
+            "x-app-id": "15d7e8ca",
+            "x-app-key": "b87fefe221a8b57acbd70ca8226aea80",
+            "x-remote-user-id": "0",
+            "cache-control": "no-cache",
+            "postman-token": "98541ddb-bb57-f864-32b5-c32911147ea0"
+        },
+        "processData": false,
+        "data": "{\n  \"query\": \"2 cups mashed potatoes 2 servings of chicken breast\",\n  \"num_servings\": 1,\n  \"aggregate\": \"string\",\n  \"line_delimited\": false,\n  \"timezone\": \"US/Eastern\",\n  \"consumed_at\": null,\n  \"lat\": null,\n  \"lng\": null,\n  \"meal_type\": 0\n}"
+    }
+    $.ajax(settings2).done(function (response) {
+        console.log(response);
+    });
+
+
+
+
+
+</script>

@@ -21,6 +21,7 @@ namespace MyTrainer.Controllers
         {
             string userId = User.Identity.GetUserId();
             User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            MealPlan mealPlan = db.MealDb.FirstOrDefault(x => x.Id == currentUser.Id);
             var findUserPlan = db.MealDb.Where(x => x.Id == currentUser.MealPlanId).Select(x => x);
             return View(findUserPlan);
         }
@@ -98,6 +99,14 @@ namespace MyTrainer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,MealPlanType,BasicId,VegetarianId,VeganId")] MealPlan mealPlan)
         {
+            string userId = User.Identity.GetUserId();
+            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            BasicMealPlan Basic = db.BasicDb.FirstOrDefault(x => x.Id == currentUser.Id);
+            mealPlan.BasicId = Basic.Id;
+            VegetarianMealPlan vegetarian = db.VegetarianDb.FirstOrDefault(x => x.Id == currentUser.Id);
+            mealPlan.VegetarianId = vegetarian.Id;
+            VeganMealPlan vegan = db.VeganDb.FirstOrDefault(x => x.Id == currentUser.Id);
+            mealPlan.VeganId = vegan.Id;
             if (ModelState.IsValid)
             {
                 if(mealPlan.MealPlanType == "Basic"){
@@ -116,7 +125,7 @@ namespace MyTrainer.Controllers
                 }
                 db.Entry(mealPlan).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", "Users");
             }
             return View(mealPlan);
         }

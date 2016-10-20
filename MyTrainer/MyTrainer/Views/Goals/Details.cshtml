@@ -1,0 +1,42 @@
+﻿@model MyTrainer.Models.Goals
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Goals</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LoseWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoseWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GainMuscle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GainMuscle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maintain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maintain)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

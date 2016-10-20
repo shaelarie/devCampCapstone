@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyTrainer.Models.MealPlan>
+﻿@model IEnumerable<MyTrainer.Models.Goals>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MealPlanType)
+            @Html.DisplayNameFor(model => model.UserGoal)
         </th>
         <th></th>
     </tr>
@@ -20,10 +20,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.MealPlanType)
+            @Html.DisplayFor(modelItem => item.UserGoal)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Update Your Goal", "Edit") |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
@@ -31,4 +31,3 @@
 }
 
 </table>
-

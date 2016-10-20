@@ -212,6 +212,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicMealPlansController.cs" />
+    <Compile Include="Controllers\GoalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MealPlansController.cs" />
@@ -225,6 +226,30 @@
     <Compile Include="Migrations\201610182221563_qre.cs" />
     <Compile Include="Migrations\201610182221563_qre.Designer.cs">
       <DependentUpon>201610182221563_qre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610191542525_qres.cs" />
+    <Compile Include="Migrations\201610191542525_qres.Designer.cs">
+      <DependentUpon>201610191542525_qres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610191604566_qreswe.cs" />
+    <Compile Include="Migrations\201610191604566_qreswe.Designer.cs">
+      <DependentUpon>201610191604566_qreswe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610191616249_qreswea.cs" />
+    <Compile Include="Migrations\201610191616249_qreswea.Designer.cs">
+      <DependentUpon>201610191616249_qreswea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610191650061_qresweare.cs" />
+    <Compile Include="Migrations\201610191650061_qresweare.Designer.cs">
+      <DependentUpon>201610191650061_qresweare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610191749474_yitc.cs" />
+    <Compile Include="Migrations\201610191749474_yitc.Designer.cs">
+      <DependentUpon>201610191749474_yitc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610191915333_fefe.cs" />
+    <Compile Include="Migrations\201610191915333_fefe.Designer.cs">
+      <DependentUpon>201610191915333_fefe.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -451,6 +476,11 @@
     <Content Include="Views\VeganMealPlans\Details.cshtml" />
     <Content Include="Views\VeganMealPlans\Edit.cshtml" />
     <Content Include="Views\VeganMealPlans\Index.cshtml" />
+    <Content Include="Views\Goals\Create.cshtml" />
+    <Content Include="Views\Goals\Delete.cshtml" />
+    <Content Include="Views\Goals\Details.cshtml" />
+    <Content Include="Views\Goals\Edit.cshtml" />
+    <Content Include="Views\Goals\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -468,6 +498,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610182221563_qre.resx">
       <DependentUpon>201610182221563_qre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610191542525_qres.resx">
+      <DependentUpon>201610191542525_qres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610191604566_qreswe.resx">
+      <DependentUpon>201610191604566_qreswe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610191616249_qreswea.resx">
+      <DependentUpon>201610191616249_qreswea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610191650061_qresweare.resx">
+      <DependentUpon>201610191650061_qresweare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610191749474_yitc.resx">
+      <DependentUpon>201610191749474_yitc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610191915333_fefe.resx">
+      <DependentUpon>201610191915333_fefe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
