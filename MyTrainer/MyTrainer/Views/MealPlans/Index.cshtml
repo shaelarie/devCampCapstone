@@ -4,31 +4,257 @@
     ViewBag.Title = "Index";
 }
 
+<meta charset="utf-8">
+<link rel="stylesheet" href="~/Content/Site.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 <h2>Index</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CalorieIntake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProteinIntake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarbIntake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatIntake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mealPlanDetails)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MealPlanType)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CalorieIntake)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProteinIntake)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarbIntake)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatIntake)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mealPlanDetails)
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MealPlanType)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+    </table>
+@foreach (var item in Model)
+{
+    <span id="calories" style="display: none;">item.CalorieIntake</span>
 }
+    <div class="container">
+        <h5>Your Daily Caloric Intake</h5>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                <p style="text-align:center;">CALORIES</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h5>Your Daily Protein Intake</h5>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                <p style="text-align:center;">PROTEIN</p>
+            </div>
+        </div>
+    </div>
 
-</table>
+    <div class="container">
+        <h5>Your Daily Fat Intake</h5>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                <p style="text-align:center;">FAT</p>            
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h5>Your Daily Carbohydrate Intake</h5>
+        <div class="progress">
+            <div id="CarbBar"></div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; background-color: #4ecded">
+                <p style="margin-left: 70%; margin-right: 75%; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">CARBS</p>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Meal1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Snack1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meal2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Snack2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meal3)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meal1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Snack1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meal2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Snack2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meal3)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="col-md-12">
+        <div class="jumbotron" style="width: 100%; height: 100%;">
+            <div class="row">
+                <div style="margin-left: 0px;">
+                    <h1>Plan Your Meals Here!</h1>
+                    <h3>Don't worry, we'll help you!</h3>
+                    <form class="form-inline">
+                        <input class="form-control" size="50" placeholder="What do you want to eat?" type="text" id="search-keyword" title="Search For Food" required>
+                        <br /><br />
+
+                        <input class="btn btn-danger" type="button" value="Search >>" onclick="Search();" />
+                    </form>
+                </div>
+            </div>
+        </div> @*row ends here*@
+
+    <div class="col-md-10" id="meal1" style="height: 600px;"></div>
+</div>
+
+<script src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.11.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+                 $.ajax({
+                url: "../Users/getMaxMacros",
+                type: "GET",
+                success: function (data) {
+                    console.log(data);
+                    var val = '';
+                    ////for (var i = 0; i < data.Count - 1; i++) {
+                    //var cal = data[0];
+                    //val[1] = data[1];
+                    //val[2] = data[2];
+                    //val[3] = data[3];
+                    ////}
+                    //console.log(val);
+                }
+            })
+
+    })
+
+        function Search() {
+            var displayInfo = '';
+            var UserSearch = $('#search-keyword').val();
+            var returnObj;
+            var Url = "https://trackapi.nutritionix.com/v2/natural/nutrients";
+            var meal = {
+                "async": true,
+                "crossDomain": true,
+                "url": "" + Url,
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/json",
+                    "accept": "application/json",
+                    "x-app-id": "15d7e8ca",
+                    "x-app-key": "b87fefe221a8b57acbd70ca8226aea80",
+                    "x-remote-user-id": "0",
+                    "cache-control": "no-cache",
+                },
+                "processData": false,
+                "data": "{\n  \"query\": \""+ UserSearch + "\",\n  \"num_servings\": 1,\n  \"aggregate\": \"string\",\n  \"line_delimited\": false,\n  \"timezone\": \"US/Eastern\",\n  \"consumed_at\": null,\n  \"lat\": null,\n  \"lng\": null,\n  \"meal_type\": 0\n}"
+            }
+
+            $.ajax(meal).done(function (response) {
+                console.log(response);
+                $.each(response, function (key, value) {
+                    //var i = 0;
+                    var array = [];
+                    array[0] = response.foods[0];
+                    getArray(array);
+                    //i++
+                })
+            })
+
+        }
+
+
+        function getArray(Array) {
+            var array = [];
+            array[0] = Array[0];
+            $.each(array, function (key, value) {
+                var macros = {
+                    calories: array[0].nf_calories,
+                    protein: array[0].nf_protein,
+                    fat: array[0].nf_total_fat,
+                    carbs: array[0].nf_total_carbohydrate
+                }
+                console.log(macros);
+                getMacros(macros);
+            })
+
+        }
+
+        function getMacros(macros) {
+            var displayInfo = '';
+            var macros = macros;
+            $.each(macros, function (key, value) {
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Results: ' + $('#search-keyword').val() + '</div><br>';
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Calories: ' + macros.calories + '</div><br>';
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Protein Content: ' + macros.protein + '</div><br>';
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Total Fat content: ' + macros.fat + '</div><br>';
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Carb Content: ' + macros.carbs + '</div><br>';
+
+            })
+            return $('#meal1').html(displayInfo);
+        }
+        function saveToMeal1() {
+
+        }
+        function saveToSnack1() {
+
+        }
+        function saveToMeal2() {
+
+        }
+        function saveToSnack2() {
+
+        }
+        function saveToMeal3() {
+
+        }
+</script>
 

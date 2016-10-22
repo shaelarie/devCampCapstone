@@ -11,18 +11,25 @@ namespace MyTrainer.Models
     {
         [Key]
         public int Id { get; set; }
-        public string MealPlanType { get; set; }
         public string mealPlanDetails { get; set; }
-
-        [ForeignKey("VegetarianMealPlan")]
-        public int? VegetarianId { get; set; }
-        public VegetarianMealPlan VegetarianMealPlan { get; set; }
-        [ForeignKey("VeganMealPlan")]
-        public int? VeganId { get; set; }
-        public VeganMealPlan VeganMealPlan { get; set; }
-        [ForeignKey("BasicMealPlan")]
-        public int? BasicId { get; set; }
-        public BasicMealPlan BasicMealPlan { get; set; }
+        public double? CalorieIntake { get; set; }
+        public double? ProteinIntake { get; set; }
+        public double? CarbIntake { get; set; }
+        public double? FatIntake { get; set; }
+        public double? CaloriesAdded { get; set; }
+        public double? ProteinAdded { get; set; }
+        public double? CarbsAdded { get; set; }
+        public double? FatAdded { get; set; }
+        [Display(Name ="Breakfast")]
+        public List<string> Meal1 { get; set; }
+        [Display(Name = "Snack")]
+        public List<string> Snack1 { get; set; }
+        [Display(Name = "Lunch")]
+        public List<string> Meal2 { get; set; }
+        [Display(Name = "Snack")]
+        public List<string> Snack2 { get; set; }
+        [Display(Name = "Dinner")]
+        public List<string> Meal3 { get; set; }
 
     }
 }

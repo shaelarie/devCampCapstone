@@ -11,6 +11,8 @@ namespace MyTrainer.Models
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name ="Age")]
+        public int? age { get; set; }
         public string Username { get; set; }
         [Display(Name = "weight in pounds")]
         public int? Weight { get; set; }

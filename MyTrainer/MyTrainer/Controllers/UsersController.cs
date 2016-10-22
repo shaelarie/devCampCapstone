@@ -110,35 +110,40 @@ namespace MyTrainer.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Username,Weight,HeightFt,HeightIn,TDEE,DailyCalorieIntake,Gender,LoginId," +
-            "GoalId,MealPlanId,BMI,ProteinIntake,FatIntake,CarbIntake,BMR,WorkoutAmount")] User user)
+            "GoalId,MealPlanId,BMI,ProteinIntake,FatIntake,CarbIntake,BMR,WorkoutAmount,age")] User user)
         {
+            MealPlan mealPlan = db.MealDb.FirstOrDefault(x => x.Id == user.Id);
+            Goals goal = db.GoalDb.FirstOrDefault(x => x.Id == user.Id);
             if (ModelState.IsValid)
             {
-                var userGoal = db.GoalDb.Where(x => x.Id == user.Id).Select(x => x.UserGoal).ToString();
+                var userGoal = goal.UserGoal.ToString();
                 if (user.Gender.ToString() == "Male")
                 {
-                    user.BMR = getMaleBMR(Convert.ToInt32(user.Weight));
+                    user.BMR = getMaleBMR(Convert.ToInt32(user.Weight),Convert.ToInt16(user.HeightFt),Convert.ToInt16(user.HeightIn),Convert.ToInt16(user.age));
                     user.BMI = getBMI(Convert.ToInt32(user.Weight), Convert.ToInt32(user.HeightFt), Convert.ToInt32(user.HeightIn));
                     user.TDEE = getTDEE(Convert.ToDouble(user.BMR), Convert.ToInt32(user.WorkoutAmount));
                 }
                 else if (user.Gender.ToString() == "Female")
                 {
-                    user.BMR = getFemaleBMR(Convert.ToInt32(user.Weight));
+                    user.BMR = getFemaleBMR(Convert.ToInt32(user.Weight), Convert.ToInt16(user.HeightFt), Convert.ToInt16(user.HeightIn), Convert.ToInt16(user.age));
                     user.BMI = getBMI(Convert.ToInt32(user.Weight), Convert.ToInt32(user.HeightFt), Convert.ToInt32(user.HeightIn));
                     user.TDEE = getTDEE(Convert.ToDouble(user.BMR), Convert.ToInt32(user.WorkoutAmount));
                 }
-                user.DailyCalorieIntake = getCalories(Convert.ToDouble(user.TDEE), userGoal);
+                user.DailyCalorieIntake = getCalories(Convert.ToInt32(user.TDEE), userGoal);
                 user.ProteinIntake = getProtein(Convert.ToDouble(user.BMI), Convert.ToInt32(user.Weight));
-                double caloriesAfterProtein = (Convert.ToInt16(user.DailyCalorieIntake)) - (Convert.ToInt16(user.ProteinIntake) * 4);
-                user.FatIntake = getFat(caloriesAfterProtein);
+                user.FatIntake = getFat(Convert.ToInt16(user.DailyCalorieIntake));
                 user.CarbIntake = getCarbs(Convert.ToDouble(user.ProteinIntake), Convert.ToDouble(user.FatIntake), Convert.ToDouble(user.DailyCalorieIntake));
 
                 var schedule = db.ScheduleDb.Where(x => x.UserId == user.Id).Select(x => x);
                 Math.Round(Convert.ToDouble(user.BMR));
                 Math.Round(Convert.ToDouble(user.BMI));
+                mealPlan.CalorieIntake = user.DailyCalorieIntake;
+                mealPlan.CarbIntake = user.CarbIntake;
+                mealPlan.ProteinIntake = user.ProteinIntake;
+                mealPlan.FatIntake = user.FatIntake;
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", user);
+                return RedirectToAction("Index", "MealPlans");
             }
             
             ViewBag.EmailId = new SelectList(db.Users, "Id", "Email", User);
@@ -172,28 +177,29 @@ namespace MyTrainer.Controllers
             return RedirectToAction("Index");
         }
 
-        public double getMaleBMR(int weight)
+        public double getMaleBMR(int weight, int heightFt,int heightIn, int age)
         {
-            double weightKg = weight * .04;
-            double MaleBMR = (875 + 10.2) * weightKg;
-            return MaleBMR;
+            int ftToIn = heightFt * 12;
+            int heightInInches = ftToIn + heightIn;
+            double maleBMR = 66 + (6.23 * weight) + (12.7 * heightInInches) - (6.8 * age);
+            return maleBMR;
         }
 
-        public double getFemaleBMR(int weight)
-        {
-            double weightKg = weight * .04;
-            double FemaleBMR = (795 + 7.2) * weightKg;
+        public double getFemaleBMR(int weight, int heightFt, int heightIn, int age)
+        {   int ftToIn = heightFt * 12;
+            int heightInInches = ftToIn + heightIn;
+            double FemaleBMR = 655 + (4.35 * weight) + (4.7 * heightInInches) - (4.7 * age);
             return FemaleBMR;
         }
 
-        public int getBMI(int weight, int heightFt, int heightIn)
+        public double getBMI(int weight, int heightFt, int heightIn)
         {
-            double weightKg = weight * .04;
+            double weightKg = weight * .45;
             double ftHeightInInches = heightFt * 12;
             double HeightInInches = ftHeightInInches + heightIn;
-            double HeightInMeters = (ftHeightInInches * .025);
+            double HeightInMeters = (HeightInInches * .025);
             double UserBMI = weightKg / (HeightInMeters * HeightInMeters);
-            return Convert.ToInt16(UserBMI);
+            return Convert.ToDouble(UserBMI);
         }
 
         public int getTDEE(double UserBMR, int daysWorkingOut)
@@ -228,15 +234,15 @@ namespace MyTrainer.Controllers
             double protein;
             if(bmi >= 30)
             {
-                protein = weight * .8;
+                protein = weight;
                 return Convert.ToInt16(protein);
             }
             else
-                protein = weight;
+                protein = weight+(weight * .1);
                 return Convert.ToInt16(protein);
 
         }
-        public double getCalories(double tdee, string goal)
+        public double getCalories(int tdee, string goal)
         {
             double calories;
             if (goal == "GainMuscle")
@@ -246,7 +252,7 @@ namespace MyTrainer.Controllers
             }
             else if (goal == "LoseWeight")
             {
-                calories = tdee - (tdee * .2);
+                calories = tdee - (tdee * .17);
                 return Convert.ToInt16(calories);
             }
             else
@@ -256,7 +262,7 @@ namespace MyTrainer.Controllers
         }
         public double getFat(double dailyIntake)
         {
-            double fat = (dailyIntake * .25) / 9;
+            double fat = (dailyIntake * .38) / 9;
             return Convert.ToInt16(fat);
 
         }
@@ -274,5 +280,54 @@ namespace MyTrainer.Controllers
             base.Dispose(disposing);
         }
 
+        [HttpGet]
+        public ActionResult getMaxMacros()
+        {
+            string userId = User.Identity.GetUserId();
+            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            Object[] data = new Object[4];
+            data[0] = currentUser.DailyCalorieIntake;
+            data[1] = currentUser.ProteinIntake;
+            data[2] = currentUser.FatIntake;
+            data[3] = currentUser.CarbIntake;
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        public string SerializeMacros(Object List)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            string json = serializer.Serialize(List);
+            return json;
+
+        }
+
+        [HttpGet]
+        public ActionResult getMaxFat()
+        {
+            string userId = User.Identity.GetUserId();
+            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            var dailyFat = currentUser.FatIntake.Value;
+            return Json(dailyFat, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public ActionResult getMaxProtein()
+        {
+            string userId = User.Identity.GetUserId();
+            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            var dailyProtein = currentUser.ProteinIntake.Value;
+            return Json(dailyProtein, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public ActionResult getMaxCarbs()
+        {
+            string userId = User.Identity.GetUserId();
+            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            var dailyCarbs = currentUser.CarbIntake.Value;
+            return Json(dailyCarbs, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Chat()
+        {
+            return View();
+        }
     }
 }

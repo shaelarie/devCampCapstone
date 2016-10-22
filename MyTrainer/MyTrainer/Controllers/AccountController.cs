@@ -161,16 +161,7 @@ namespace MyTrainer.Controllers
                 if (result.Succeeded)
                 {
                     var db = new ApplicationDbContext();
-                    var basic = new BasicMealPlan();
-                    var vegetarien = new VegetarianMealPlan();
-                    var vegan = new VeganMealPlan();
-                    var UserMealPlan = new MealPlan
-                    {
-                        BasicId = basic.Id,
-                        VegetarianId = vegetarien.Id,
-                        VeganId = vegan.Id
-                        
-                    };
+                    var UserMealPlan = new MealPlan();
                     var goals = new Goals();
                     var UserProfile = new User
                     {
@@ -182,11 +173,10 @@ namespace MyTrainer.Controllers
                     var schedule = new UserSchedule
                     {
                         User = UserProfile,
-                        UserId = UserProfile.Id
+                        UserId = UserProfile.Id,
+                        startDate = null,
+                        endDate = null
                     };
-                    db.BasicDb.Add(basic);
-                    db.VegetarianDb.Add(vegetarien);
-                    db.VeganDb.Add(vegan);
                     db.GoalDb.Add(goals);
                     db.MealDb.Add(UserMealPlan);
                     db.ScheduleDb.Add(schedule);

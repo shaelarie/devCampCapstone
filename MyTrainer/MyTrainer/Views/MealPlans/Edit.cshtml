@@ -16,11 +16,15 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
-        @Html.HiddenFor(model => model.VeganId)
-        @Html.HiddenFor(model => model.VegetarianId)
-        @Html.HiddenFor(model => model.BasicId)
+        @Html.HiddenFor(model => model.mealPlanDetails)
+        @Html.HiddenFor(model => model.Meal1)
+        @Html.HiddenFor(model => model.Snack1)
+        @Html.HiddenFor(model => model.Meal2)
+        @Html.HiddenFor(model => model.Snack2)
+        @Html.HiddenFor(model => model.Meal3)
+        @Html.HiddenFor(model => model.ProteinIntake)
         <div class="form-group">
-           <div class="col-md-10">
+           @*<div class="col-md-10">
              Basic
                 <div class="radio">
                     @Html.RadioButtonFor(model => model.MealPlanType,"Basic", new { htmlAttributes = new { @class = "form-control" } })
@@ -47,7 +51,8 @@
                 </div>
 
             </div>
-        </div>
+        </div>*@
+            </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -59,7 +64,86 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<div class="jumbotron text-center">
+    <h1>Plan Your Meals Here! Don't worry, we'll help you!</h1>
+    <form class="form-inline">
+        <input class="form-control" size="50" placeholder="What do you want to eat?" type="text" id="search-keyword" title="Search For Food" required>
+        <br /><br />
 
+        <input class="btn btn-danger" type="button" value="Search >>" onclick="Search();" />
+    </form>
+</div>
+<div class="col-md-10" id="meal1" style="height: 600px;"></div>
+
+<script src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.11.min.js"></script>
+<script type="text/javascript">
+        function Search() {
+            var displayInfo = '';
+            var UserSearch = $('#search-keyword').val();
+            var returnObj;
+            var Url = "https://trackapi.nutritionix.com/v2/natural/nutrients";
+            var meal = {
+                "async": true,
+                "crossDomain": true,
+                "url": "" + Url,
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/json",
+                    "accept": "application/json",
+                    "x-app-id": "15d7e8ca",
+                    "x-app-key": "b87fefe221a8b57acbd70ca8226aea80",
+                    "x-remote-user-id": "0",
+                    "cache-control": "no-cache",
+                },
+                "processData": false,
+                "data": "{\n  \"query\": \""+ UserSearch + "\",\n  \"num_servings\": 1,\n  \"aggregate\": \"string\",\n  \"line_delimited\": false,\n  \"timezone\": \"US/Eastern\",\n  \"consumed_at\": null,\n  \"lat\": null,\n  \"lng\": null,\n  \"meal_type\": 0\n}"
+            }
+
+            $.ajax(meal).done(function (response) {
+                console.log(response);
+                $.each(response, function (key, value) {
+                    //var i = 0;
+                    var array = [];
+                    array[0] = response.foods[0];
+                    getArray(array);
+                    //i++
+                })
+            })
+
+        }
+
+
+        function getArray(Array) {
+            var array = [];
+            array[0] = Array[0];
+            $.each(array, function (key, value) {
+                var macros = {
+                    calories: array[0].nf_calories,
+                    protein: array[0].nf_protein,
+                    fat: array[0].nf_total_fat,
+                    carbs: array[0].nf_total_carbohydrate
+                }
+                console.log(macros);
+                getMacros(macros);
+            })
+
+        }
+
+        function getMacros(macros) {
+            var displayInfo = '';
+            var macros = macros;
+            $.each(macros, function (key, value) {
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Results: ' + $('#search-keyword').val() + '</div><br>';
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Calories: ' + macros.calories + '</div><br>';
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Protein Content: ' + macros.protein + '</div><br>';
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Total Fat content: ' + macros.fat + '</div><br>';
+                displayInfo += '<div class"row" style="height: 20%; width: 100%;"> Carb Content: ' + macros.carbs + '</div><br>';
+
+            })
+            return $('#meal1').html(displayInfo);
+        }
+</script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

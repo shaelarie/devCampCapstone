@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MyTrainer.Models.UserPhotos>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Index</h2>
+<br />
+<br />
+<br />
+<br />
+<div class="row">
+<div class="col-md-9">
+<table class="table" style="height: 100%;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PictureDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="height:200px; font-size: 32px; font-weight:900;">
+        <td style="margin-top:250px;">
+            @Html.DisplayFor(modelItem => item.User.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PictureDescription)
+        </td>
+    </tr>
+}
+
+</table>
+</div>
+<div class="col-md-3">
+@foreach (var item in Model)
+{
+
+    <img id="myImg" style="height:200px; width:300px;" src="@item.FileName">
+    <div class="row" style="text-align:center;">
+    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+ @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </div>
+}
+
+</div>
+
+</div>
+<div class="row">
+@using (Html.BeginForm("FileUpload", "UserPhotos", null, FormMethod.Post,
+                                          new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>UPLOAD PICTURE TO SHOW YOUR PROGRESS</legend>
+        <div class="editor-label">
+            <label>Upload a Picture To Show your Progress!</label>
+        </div>
+        <div class="editor-field">
+            <input id="Picture" title="Upload a product image"
+                   type="file" name="file" />
+        </div>
+        <p><input type="submit" value="Upload" /></p>
+    </fieldset>
+}
+
+</div>

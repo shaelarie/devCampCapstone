@@ -24,13 +24,12 @@ namespace MyTrainer.Controllers
 
         public ActionResult Index()
         {
-            string userId = User.Identity.GetUserId();
-            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
             try
             {
+                string userId = User.Identity.GetUserId();
+                User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
                 var eventList = db.ScheduleDb.Where(g => g.UserId == currentUser.Id).
                 ToList().GroupBy(x => x.eventId).Select(y => y.First()).ToList();
-                JavaScriptSerializer serializer = new JavaScriptSerializer();
                 string jsonEvents = SerializeCalendarEventList(eventList);
                 return View(new UserSchedule() { data = jsonEvents });
             }
@@ -39,19 +38,6 @@ namespace MyTrainer.Controllers
                 return RedirectToAction("Login", "Account");
             }
         }
-
-        public ActionResult About()
-        {
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         public void SaveEvent(UserSchedule data)
         {
             string userId = User.Identity.GetUserId();
@@ -136,18 +122,6 @@ namespace MyTrainer.Controllers
         {
             List<string> NewList = list.Replace(" ", "").Split(',').ToList();
             return NewList;
-        }
-
-        public List<UserSchedule> CopyEventList(List<UserSchedule> EventList)
-        {
-            List<UserSchedule> tempList = new List<UserSchedule>();
-            for (int k = 0; k < EventList.Count; k++)
-            {
-                tempList.Add(EventList[k]);
-                tempList[k].editable = false;
-                tempList[k].background = "gray";
-            }
-            return tempList;
         }
 
  

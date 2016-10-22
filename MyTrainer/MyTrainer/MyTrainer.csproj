@@ -74,6 +74,14 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -211,49 +219,30 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BasicMealPlansController.cs" />
     <Compile Include="Controllers\GoalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MealPlansController.cs" />
+    <Compile Include="Controllers\UserPhotosController.cs" />
     <Compile Include="Controllers\UserSchedulesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\VeganMealPlansController.cs" />
-    <Compile Include="Controllers\VegetarianMealPlansController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610182221563_qre.cs" />
-    <Compile Include="Migrations\201610182221563_qre.Designer.cs">
-      <DependentUpon>201610182221563_qre.cs</DependentUpon>
+    <Compile Include="Migrations\201610211835422_s.cs" />
+    <Compile Include="Migrations\201610211835422_s.Designer.cs">
+      <DependentUpon>201610211835422_s.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610191542525_qres.cs" />
-    <Compile Include="Migrations\201610191542525_qres.Designer.cs">
-      <DependentUpon>201610191542525_qres.cs</DependentUpon>
+    <Compile Include="Migrations\201610211952393_sh.cs" />
+    <Compile Include="Migrations\201610211952393_sh.Designer.cs">
+      <DependentUpon>201610211952393_sh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610191604566_qreswe.cs" />
-    <Compile Include="Migrations\201610191604566_qreswe.Designer.cs">
-      <DependentUpon>201610191604566_qreswe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610191616249_qreswea.cs" />
-    <Compile Include="Migrations\201610191616249_qreswea.Designer.cs">
-      <DependentUpon>201610191616249_qreswea.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610191650061_qresweare.cs" />
-    <Compile Include="Migrations\201610191650061_qresweare.Designer.cs">
-      <DependentUpon>201610191650061_qresweare.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610191749474_yitc.cs" />
-    <Compile Include="Migrations\201610191749474_yitc.Designer.cs">
-      <DependentUpon>201610191749474_yitc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610191915333_fefe.cs" />
-    <Compile Include="Migrations\201610191915333_fefe.Designer.cs">
-      <DependentUpon>201610191915333_fefe.cs</DependentUpon>
+    <Compile Include="Migrations\201610212327004_shshg.cs" />
+    <Compile Include="Migrations\201610212327004_shshg.Designer.cs">
+      <DependentUpon>201610212327004_shshg.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BasicMealPlan.cs" />
     <Compile Include="Models\Goals.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -262,8 +251,6 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserPhotos.cs" />
     <Compile Include="Models\UserSchedule.cs" />
-    <Compile Include="Models\VeganMealPlan.cs" />
-    <Compile Include="Models\VegetarianMealPlan.cs" />
     <Compile Include="Models\Workouts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -274,6 +261,7 @@
     <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\fullcalendar.print.css" />
+    <Content Include="Content\styleImages.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -323,6 +311,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -461,29 +451,21 @@
     <Content Include="Views\MealPlans\Details.cshtml" />
     <Content Include="Views\MealPlans\Edit.cshtml" />
     <Content Include="Views\MealPlans\Index.cshtml" />
-    <Content Include="Views\BasicMealPlans\Create.cshtml" />
-    <Content Include="Views\BasicMealPlans\Delete.cshtml" />
-    <Content Include="Views\BasicMealPlans\Details.cshtml" />
-    <Content Include="Views\BasicMealPlans\Edit.cshtml" />
-    <Content Include="Views\BasicMealPlans\Index.cshtml" />
-    <Content Include="Views\VegetarianMealPlans\Create.cshtml" />
-    <Content Include="Views\VegetarianMealPlans\Delete.cshtml" />
-    <Content Include="Views\VegetarianMealPlans\Details.cshtml" />
-    <Content Include="Views\VegetarianMealPlans\Edit.cshtml" />
-    <Content Include="Views\VegetarianMealPlans\Index.cshtml" />
-    <Content Include="Views\VeganMealPlans\Create.cshtml" />
-    <Content Include="Views\VeganMealPlans\Delete.cshtml" />
-    <Content Include="Views\VeganMealPlans\Details.cshtml" />
-    <Content Include="Views\VeganMealPlans\Edit.cshtml" />
-    <Content Include="Views\VeganMealPlans\Index.cshtml" />
     <Content Include="Views\Goals\Create.cshtml" />
     <Content Include="Views\Goals\Delete.cshtml" />
     <Content Include="Views\Goals\Details.cshtml" />
     <Content Include="Views\Goals\Edit.cshtml" />
     <Content Include="Views\Goals\Index.cshtml" />
+    <Content Include="Views\UserPhotos\Create.cshtml" />
+    <Content Include="Views\UserPhotos\Delete.cshtml" />
+    <Content Include="Views\UserPhotos\Details.cshtml" />
+    <Content Include="Views\UserPhotos\Edit.cshtml" />
+    <Content Include="Views\UserPhotos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
+    <Folder Include="Views\Chat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -496,26 +478,14 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610182221563_qre.resx">
-      <DependentUpon>201610182221563_qre.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610211835422_s.resx">
+      <DependentUpon>201610211835422_s.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610191542525_qres.resx">
-      <DependentUpon>201610191542525_qres.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610211952393_sh.resx">
+      <DependentUpon>201610211952393_sh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610191604566_qreswe.resx">
-      <DependentUpon>201610191604566_qreswe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610191616249_qreswea.resx">
-      <DependentUpon>201610191616249_qreswea.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610191650061_qresweare.resx">
-      <DependentUpon>201610191650061_qresweare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610191749474_yitc.resx">
-      <DependentUpon>201610191749474_yitc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610191915333_fefe.resx">
-      <DependentUpon>201610191915333_fefe.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610212327004_shshg.resx">
+      <DependentUpon>201610212327004_shshg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

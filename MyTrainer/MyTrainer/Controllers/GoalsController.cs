@@ -16,6 +16,7 @@ namespace MyTrainer.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Goals
+        [Authorize]
         public ActionResult Index()
         {
             string userId = User.Identity.GetUserId();
@@ -83,11 +84,12 @@ namespace MyTrainer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,UserGoal")] Goals goals)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entry(goals).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Edit","MealPlans", new { id = goals.Id});
+                return RedirectToAction("Edit","Users");
             }
             return View(goals);
         }

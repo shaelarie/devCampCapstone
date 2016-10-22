@@ -1,0 +1,50 @@
+﻿@model MyTrainer.Models.UserPhotos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserPhotos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PictureDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PictureDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTaken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTaken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Picture)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

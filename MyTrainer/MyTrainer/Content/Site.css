@@ -1,12 +1,12 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +21,17 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+.container
+h5{
+    text-align: center;
+    font-weight:bolder;
+    color: black;
+}
+
+.jumbotron{
+    background-color: #1f77ba;
+    border-width:thin, medium, thin, medium;
+    border-color: #adadad;
+    
 }

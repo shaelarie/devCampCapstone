@@ -11,8 +11,10 @@ namespace MyTrainer.Models
     {
         [Key]
         public int Id { get; set; }
-        public DateTime DateTaken { get; set; }
-        public byte[] Picture { get; set; }
+        public string PictureDescription { get; set; }
+        public DateTime? DateTaken { get; set; }
+        public string Picture { get; set; }
+        public string FileName { get; set; }
         [ForeignKey("User")]
         public int UserId { get; set; }
         public User User { get; set; }

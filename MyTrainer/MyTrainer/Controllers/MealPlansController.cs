@@ -27,30 +27,13 @@ namespace MyTrainer.Controllers
         }
 
         // GET: MealPlans/Details/5
-        public ActionResult Details(int? id)
+        [Authorize]
+        public ActionResult Details()
         {
-            
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            string userId = User.Identity.GetUserId();
+            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            int id = currentUser.Id;
             MealPlan mealPlan = db.MealDb.Find(id);
-            if(mealPlan.MealPlanType == "Basic")
-            {
-                return RedirectToAction("Index", "BasicMealPlans");
-            }
-            if(mealPlan.MealPlanType == "Vegetarian")
-            {
-                return RedirectToAction("Index", "VegetarianMealPlans");
-            }
-            if(mealPlan.MealPlanType == "Vegan")
-            {
-                return RedirectToAction("Index", "VeganMealPlans");
-            }
-            if (mealPlan == null)
-            {
-                return HttpNotFound();
-            }
             return View(mealPlan);
         }
 
@@ -97,32 +80,13 @@ namespace MyTrainer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,MealPlanType,BasicId,VegetarianId,VeganId")] MealPlan mealPlan)
+        public ActionResult Edit([Bind(Include = "Id,MealPlanDetails,ProteinIntake,CarbIntake,FatIntake,Meal1,Snack1,Meal2,Snack2,Meal3")] MealPlan mealPlan)
         {
             string userId = User.Identity.GetUserId();
             User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
-            BasicMealPlan Basic = db.BasicDb.FirstOrDefault(x => x.Id == currentUser.Id);
-            mealPlan.BasicId = Basic.Id;
-            VegetarianMealPlan vegetarian = db.VegetarianDb.FirstOrDefault(x => x.Id == currentUser.Id);
-            mealPlan.VegetarianId = vegetarian.Id;
-            VeganMealPlan vegan = db.VeganDb.FirstOrDefault(x => x.Id == currentUser.Id);
-            mealPlan.VeganId = vegan.Id;
+            currentUser.MealPlanId = mealPlan.Id;
             if (ModelState.IsValid)
             {
-                if(mealPlan.MealPlanType == "Basic"){
-                    mealPlan.VeganId = null;
-                    mealPlan.VegetarianId = null;
-                }
-                if (mealPlan.MealPlanType == "Vegetarian")
-                {
-                    mealPlan.BasicId = null;
-                    mealPlan.VeganId = null;
-                }
-                if (mealPlan.MealPlanType == "Vegan")
-                {
-                    mealPlan.VegetarianId = null;
-                    mealPlan.BasicId = null;
-                }
                 db.Entry(mealPlan).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Edit", "Users");
