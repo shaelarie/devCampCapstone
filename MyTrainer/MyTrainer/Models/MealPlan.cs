@@ -20,16 +20,6 @@ namespace MyTrainer.Models
         public double? ProteinAdded { get; set; }
         public double? CarbsAdded { get; set; }
         public double? FatAdded { get; set; }
-        [Display(Name ="Breakfast")]
-        public List<string> Meal1 { get; set; }
-        [Display(Name = "Snack")]
-        public List<string> Snack1 { get; set; }
-        [Display(Name = "Lunch")]
-        public List<string> Meal2 { get; set; }
-        [Display(Name = "Snack")]
-        public List<string> Snack2 { get; set; }
-        [Display(Name = "Dinner")]
-        public List<string> Meal3 { get; set; }
 
     }
 }

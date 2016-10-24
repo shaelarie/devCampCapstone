@@ -241,13 +241,45 @@
     <Compile Include="Migrations\201610212327004_shshg.Designer.cs">
       <DependentUpon>201610212327004_shshg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610222225314_revaevr.cs" />
+    <Compile Include="Migrations\201610222225314_revaevr.Designer.cs">
+      <DependentUpon>201610222225314_revaevr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610222232148_reqb.cs" />
+    <Compile Include="Migrations\201610222232148_reqb.Designer.cs">
+      <DependentUpon>201610222232148_reqb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610231850008_iygv.cs" />
+    <Compile Include="Migrations\201610231850008_iygv.Designer.cs">
+      <DependentUpon>201610231850008_iygv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610231908239_iygvh8i.cs" />
+    <Compile Include="Migrations\201610231908239_iygvh8i.Designer.cs">
+      <DependentUpon>201610231908239_iygvh8i.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610231910449_iygvh8ivrs.cs" />
+    <Compile Include="Migrations\201610231910449_iygvh8ivrs.Designer.cs">
+      <DependentUpon>201610231910449_iygvh8ivrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610240009168_earg.cs" />
+    <Compile Include="Migrations\201610240009168_earg.Designer.cs">
+      <DependentUpon>201610240009168_earg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610240013052_eargrfg.cs" />
+    <Compile Include="Migrations\201610240013052_eargrfg.Designer.cs">
+      <DependentUpon>201610240013052_eargrfg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Goals.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Meal1.cs" />
+    <Compile Include="Models\Meal2.cs" />
+    <Compile Include="Models\Meal3.cs" />
     <Compile Include="Models\MealPlan.cs" />
-    <Compile Include="Models\ScheduleViewModel.cs" />
+    <Compile Include="Models\Snack1.cs" />
+    <Compile Include="Models\Snack2.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserPhotos.cs" />
     <Compile Include="Models\UserSchedule.cs" />
@@ -394,6 +426,7 @@
     <Content Include="Scripts\locale\vi.js" />
     <Content Include="Scripts\locale\zh-cn.js" />
     <Content Include="Scripts\locale\zh-tw.js" />
+    <Content Include="Scripts\MealPlan.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
@@ -464,8 +497,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DisplayImages\" />
     <Folder Include="Images\" />
-    <Folder Include="Views\Chat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -486,6 +519,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610212327004_shshg.resx">
       <DependentUpon>201610212327004_shshg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610222225314_revaevr.resx">
+      <DependentUpon>201610222225314_revaevr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610222232148_reqb.resx">
+      <DependentUpon>201610222232148_reqb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610231850008_iygv.resx">
+      <DependentUpon>201610231850008_iygv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610231908239_iygvh8i.resx">
+      <DependentUpon>201610231908239_iygvh8i.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610231910449_iygvh8ivrs.resx">
+      <DependentUpon>201610231910449_iygvh8ivrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610240009168_earg.resx">
+      <DependentUpon>201610240009168_earg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610240013052_eargrfg.resx">
+      <DependentUpon>201610240013052_eargrfg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

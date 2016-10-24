@@ -170,16 +170,8 @@ namespace MyTrainer.Controllers
                         MealPlanId = UserMealPlan.Id,
                         GoalId = goals.Id
                     };
-                    var schedule = new UserSchedule
-                    {
-                        User = UserProfile,
-                        UserId = UserProfile.Id,
-                        startDate = null,
-                        endDate = null
-                    };
                     db.GoalDb.Add(goals);
                     db.MealDb.Add(UserMealPlan);
-                    db.ScheduleDb.Add(schedule);
                     db.UserDb.Add(UserProfile);
                     await db.SaveChangesAsync();
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

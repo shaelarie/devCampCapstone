@@ -61,34 +61,6 @@ namespace MyTrainer.Controllers
             User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
             return RedirectToAction("Index", currentUser);
         }
-        //// GET: Users/Create
-        //public ActionResult Create()
-        //{
-
-        //    ViewBag.LoginId = new SelectList(db.Users, "Id", "Email");
-        //    return View();
-        //}
-
-        //// POST: Users/Create
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "Id,Weight,HeightFt,HeightIn,LoginId,TDEE,DailyCalorieIntake")] User user)
-        //{
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.UserDb.Add(user);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index", user);
-        //    }
-
-        //    ViewBag.EmailId = new SelectList(db.Users, "Id", "Email", user.LoginId);
-        //    return View(user);
-        //}
-
-        // GET: Users/Edit/5
         [Authorize]
         public ActionResult Edit()
         {
@@ -285,11 +257,20 @@ namespace MyTrainer.Controllers
         {
             string userId = User.Identity.GetUserId();
             User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
-            Object[] data = new Object[4];
+            MealPlan meal = db.MealDb.FirstOrDefault(x => x.Id == currentUser.Id);
+            Object[] data = new Object[12];
             data[0] = currentUser.DailyCalorieIntake;
             data[1] = currentUser.ProteinIntake;
             data[2] = currentUser.FatIntake;
             data[3] = currentUser.CarbIntake;
+            data[4] = Convert.ToInt16((meal.CaloriesAdded / currentUser.DailyCalorieIntake) * 100);
+            data[5] = Convert.ToInt16((meal.ProteinAdded / currentUser.ProteinIntake) * 100);
+            data[6] = Convert.ToInt16((meal.FatAdded / currentUser.FatIntake) * 100);
+            data[7] = Convert.ToInt16((meal.CarbsAdded / currentUser.CarbIntake) * 100);
+            data[8] = Convert.ToInt16(meal.CaloriesAdded);
+            data[9] = Convert.ToInt16(meal.ProteinAdded);
+            data[10] = Convert.ToInt16(meal.FatAdded);
+            data[11] = Convert.ToInt16(meal.CarbsAdded);
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
@@ -324,10 +305,6 @@ namespace MyTrainer.Controllers
             User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
             var dailyCarbs = currentUser.CarbIntake.Value;
             return Json(dailyCarbs, JsonRequestBehavior.AllowGet);
-        }
-        public ActionResult Chat()
-        {
-            return View();
         }
     }
 }

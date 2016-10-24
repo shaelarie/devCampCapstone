@@ -35,6 +35,11 @@ namespace MyTrainer.Models
         public DbSet<MealPlan> MealDb { get; set; }
         public DbSet<UserPhotos> PhotoDb { get; set; }
         public DbSet<UserSchedule> ScheduleDb { get; set; }
+        public DbSet<Meal1> Meal1Db { get; set; }
+        public DbSet<Meal2> Meal2Db { get; set; }
+        public DbSet<Meal3> Meal3Db { get; set; }
+        public DbSet<Snack1> Snack1Db { get; set; }
+        public DbSet<Snack2> Snack2Db { get; set; }
 
     }
 }
