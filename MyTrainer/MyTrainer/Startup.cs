@@ -11,6 +11,8 @@ namespace MyTrainer
         {
             ConfigureAuth(app);
 
+            var config = new HubConfiguration();
+
         }
     }
 }

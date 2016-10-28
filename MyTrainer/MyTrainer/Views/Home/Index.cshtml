@@ -1,31 +1,157 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+@*<head>
+    <link rel="stylesheet" href="~/Content/HomePage.css"/>
+</head>
+<body style="background-image:url(/DisplayImages/training-barbell-muscles-hands-39613.jpeg); z-index:-2; background-size:cover; background-repeat:no-repeat; min-height: 100%; background-size: cover;">
+ <h1>Welcome</h1>
+<div class="registerButton col-lg-2 row">
+        <a href="../Account/Register">REGISTER</a>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+    <span class="glyphicon glyphicon-plus-sign"></span>
+        <script src="~/Scripts/jquery-1.11.3.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("header").hide();
+            });
+        </script>
+</body>*@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body style="background-color: #2c2151;">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .mySlides {
+            display: none;
+            min-width: 100%;
+            max-height: 300px;
+        }
+
+        h1 {
+            color: white;
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 64px;
+            margin: 0 0 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+
+
+    <!-- Navbar -->
+    <div class="w3-top col-md-12" style="min-width:100%; padding-left:0; margin-left:0;">
+        <ul class="w3-navbar w3-black w3-card-2 w3-left-align">
+            <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+                <a class="w3-padding-large" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            </li>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Login", "Login", "Account")</li>
+            <li>@Html.ActionLink("Your Schedule", "Index", "UserSchedules")</li>
+        </ul>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="w3-content" style="max-width:99%;margin-top:45px;">
+        <div id="images" class="mySlides w3-display-container w3-center">
+            <img src="~/DisplayImages/training-barbell-muscles-hands-39613.jpeg" style="max-height:950px; width:100%; width:90%; vertical-align: middle;">
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                <h1>MY TRAINER</h1>
+                <p>
+                    <b>
+                        My Trainer is an application designed to get you on track to living a healthy lifestyle.<br />
+                        If you have a goal in mind but you dont know where to start, then this is the app for you!<br />
+                        Login or Register down below<br />
+                    </b>
+                </p>
+                <ul><li>@Html.ActionLink("Register >>", "Register", "Account")</li></ul>
+            </div>
+        </div>
+        <div class="mySlides w3-display-container w3-center">
+            <img src="~/DisplayImages/runners-silhouettes-athletes-fitness-39308.jpeg" style="max-height:950px; width:90%; vertical-align: middle;">
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                <h1>MY TRAINER</h1>
+                <p>
+                    <b>
+                        My Trainer is an application designed to get you on track to living a healthy lifestyle.<br />
+                        If you have a goal in mind but you dont know where to start, then this is the app for you!<br />
+                        Login or Register down below<br />
+                    </b>
+                </p>
+                <ul><li>@Html.ActionLink("Register >>", "Register", "Account")</li></ul>
+            </div>
+        </div>
+        <div class="mySlides w3-display-container w3-center">
+            <img src="~/DisplayImages/breakfast-orange-lemon-oranges.jpg" style="max-height:950px; width:100%; width:90%; vertical-align: middle;">
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                <h1>MY TRAINER</h1>
+                <p>
+                    <b>
+                        My Trainer is an application designed to get you on track to living a healthy lifestyle.<br />
+                        If you have a goal in mind but you dont know where to start, then this is the app for you!<br />
+                        Login or Register down below<br />
+                    </b>
+                </p>
+                <ul><li>@Html.ActionLink("Register >>", "Register", "Account")</li></ul>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 3000);
+
+
+        }
+
+
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        var modal = document.getElementById('ticketModal');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script src="~/Scripts/jquery-1.11.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#navBar").hide();
+        });
+    </script>
+</body>
+</html>

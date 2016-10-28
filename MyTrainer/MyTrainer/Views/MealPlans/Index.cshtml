@@ -10,56 +10,28 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="col-md-12">
+    <div class="jumbotron" style="width: 100%; height: 100%; background-color:#ff630a; text-align:center; color:white;">
+        <div class="row">
+            <div style="margin-left: 0px;">
+                <h1>Plan Your Meals Here!</h1>
+                <h3 style="color:#dedee0;">Don't worry, we'll help you!</h3>
+                <form class="form-inline">
+                    <input class="form-control" size="50" placeholder="What do you want to eat?" type="text" id="search-keyword" title="Search For Food" required>
+                    <br /><br />
 
-
-<h2>Index</h2>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CalorieIntake)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProteinIntake)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CarbIntake)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FatIntake)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mealPlanDetails)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CalorieIntake)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProteinIntake)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FatIntake)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CarbIntake)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.mealPlanDetails)
-                </td>
-            </tr>
-        }
-
-    </table>
+                    <input class="btn btn-danger" style="background-color:#c4070e;" type="button" value="Search >>" onclick="Search();" />
+                </form>
+            </div>
+        </div>
+    </div> @*row ends here*@
+    <div class="col-md-12" id="meal1" style="height: auto;"></div>
+</div>
 @foreach (var item in Model)
 {
     <span id="calories" style="display: none;">item.CalorieIntake</span>
 }
-    <div class="container">
+    <div class="container" style="margin-top:75px;">
         <h5>Your Daily Caloric Intake</h5>
         <div id ="calorieBar" class="progress">
         </div>
@@ -70,12 +42,12 @@
         </div>
     </div>
     <div class="container">
-        <h5>Your Daily Carbohydrate Intake</h5>
+        <h5>Your Daily Fat Intake</h5>
         <div id="carbBar" class="progress">
         </div>
     </div>
 <div class="container">
-    <h5>Your Daily Fat Intake</h5>
+    <h5>Your Daily Carb Intake</h5>
     <div id="fatBar" class="progress">
     </div>
 </div>
@@ -101,24 +73,8 @@
         <div id="meal3Display" style="height: auto; margin-top: 20px; width: 100%;"></div>
     </div>
 </div>
-    <div class="col-md-12">
-        <div class="jumbotron" style="width: 100%; height: 100%;">
-            <div class="row">
-                <div style="margin-left: 0px;">
-                    <h1>Plan Your Meals Here!</h1>
-                    <h3>Don't worry, we'll help you!</h3>
-                    <form class="form-inline">
-                        <input class="form-control" size="50" placeholder="What do you want to eat?" type="text" id="search-keyword" title="Search For Food" required>
-                        <br /><br />
-
-                        <input class="btn btn-danger" type="button" value="Search >>" onclick="Search();" />
-                    </form>
-                </div>
-            </div>
-        </div> @*row ends here*@
-    <div class="col-md-12" id="meal1" style="height: auto;"></div>
-</div>
-
+<br />
+<br />
 <script src="~/Scripts/jquery-1.11.3.min.js"></script>
 <script src="~/Scripts/jquery-ui-1.8.11.min.js"></script>
 <script src="~/Scripts/MealPlan.js"></script>

@@ -9,13 +9,13 @@
         success: function (data) {
             console.log(data);
             calories += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[4] + '%; background-color: #4ecded">';
-            calories += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[0] + '       ' + 'Your plan has: ' + data[4] + '% of your daily caloric intake</p></div>';
+            calories += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[0] + ' ' + data[4] + '% of your daily caloric intake</p></div>';
             protein += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[5] + '%; background-color: #4ecded">';
-            protein += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[9] + '/' + data[1] + '        ' + 'Your plan has: ' + data[5] + '% of your daily protein intake</p></div>';
+            protein += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[9] + '/' + data[1] + '  '+data[5] + '% of your daily protein intake</p></div>';
             carbs += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[7] + '%; background-color: #4ecded">';
-            carbs += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[11] + '/' + data[3] + '         ' + 'Your plan has: ' + data[7] + '% of your daily carb intake</p></div>';
+            carbs += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[11] + '/' + data[3] + ' '+data[7] + '% of your daily carb intake</p></div>';
             fat += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[6] + '%; background-color: #4ecded">';
-            fat += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[0] + '            ' + 'Your plan has: ' + data[6] + '% of your daily fat intake</p></div>';
+            fat += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[2] +' '+ data[6] + '% of your daily fat intake</p></div>';
             $('#calorieBar').html(calories);
             $('#proteinBar').html(protein);
             $('#carbBar').html(carbs);

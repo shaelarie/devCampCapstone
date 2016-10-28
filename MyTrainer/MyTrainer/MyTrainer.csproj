@@ -293,6 +293,7 @@
     <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\fullcalendar.print.css" />
+    <Content Include="Content\HomePage.css" />
     <Content Include="Content\styleImages.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -321,6 +322,19 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="DisplayImages\bigJeans.jpeg" />
+    <Content Include="DisplayImages\breakfast-orange-lemon-oranges.jpg" />
+    <Content Include="DisplayImages\food-healthy-morning-cereals.jpg" />
+    <Content Include="DisplayImages\HandOnBarbell.jpeg" />
+    <Content Include="DisplayImages\pexels-photo-136404.jpeg" />
+    <Content Include="DisplayImages\pexels-photo.jpg" />
+    <Content Include="DisplayImages\runnerOnPhone.jpeg" />
+    <Content Include="DisplayImages\runners-silhouettes-athletes-fitness-39308.jpeg" />
+    <Content Include="DisplayImages\sport-bike-bicycle-fitness.jpg" />
+    <Content Include="DisplayImages\training-barbell-muscles-hands-39613.jpeg" />
+    <Content Include="DisplayImages\weightLifter.jpeg" />
+    <Content Include="DisplayImages\woman-jogger-jogging-sport.jpg" />
+    <Content Include="DisplayImages\yoga-dancer-sky.jpeg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -497,7 +511,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DisplayImages\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>

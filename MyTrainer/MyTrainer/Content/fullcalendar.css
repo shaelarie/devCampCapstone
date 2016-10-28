@@ -926,6 +926,9 @@ a.fc-more:hover {
 .fc-basic-view .fc-week-number,
 .fc-basic-view .fc-day-number {
 	padding: 2px;
+    color: black;
+    font-weight:bolder;
+    letter-spacing: 1px;
 }
 
 .fc-basic-view th.fc-week-number,

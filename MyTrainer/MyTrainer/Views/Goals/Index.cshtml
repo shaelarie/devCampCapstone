@@ -4,30 +4,60 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UserGoal)
-        </th>
-        <th></th>
-    </tr>
-
+<body style="background-color:#2c2151;">
+<table class="table" style="margin-top:50px;">
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserGoal)
-        </td>
-        <td>
-            @Html.ActionLink("Update Your Goal", "Edit") |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        <td style="color:white; font-size:55px; font-weight: bolder;">
+            Your Goal is to
+            @Html.DisplayFor(modelItem => item.UserGoal)...
         </td>
     </tr>
 }
 
 </table>
+    <br />
+<h1 style="color:#e7e5e8; text-align:center; font-size:48px;">Here are some Workouts for you to try!</h1>
+    <br />
+    <br />
+<div class="row">
+    <div class="col-md-4" style="float:left; margin-left:200px;">
+    <img src="~/DisplayImages/woman-jogger-jogging-sport.jpg" style="width:600px; height:350px; border:solid; border-color:black; border-width:5px;"/>
+<br />
+        <h2 style="color:#e7e5e8;">Running</h2><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Helps prevent cardiovascular disease</h4><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Strengthens joints</h4><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Running a 10-minute mile burns about 12.2 calories per minute(and even more if you're running outside)</h4><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Running is also a killer leg workout! It will work your inner AND outter thighs, glutes, quads, hamstrings, and calves!</h4><br />
+
+    </div>
+    <div class="col-md-4" style="float:right; margin-right:200px;">
+        <img src="~/DisplayImages/sport-bike-bicycle-fitness.jpg" style="width:600px; height:350px; border:solid; border-color:black; border-width:5px;" />
+        <h2 style="color:#e7e5e8;">Cycling</h2><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Burns fat</h4><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Improves joint mobility</h4><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Decreases stress</h4><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Increases muscle strength, flexibility, and cardiovascular fitness</h4><br />
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4" style="float:left; margin-left:200px;">
+        <img src="~/DisplayImages/yoga-dancer-sky.jpeg" style="width:600px; height:800px; border:solid; border-color:black; border-width:5px;" />
+        <h2 style="color:#e7e5e8;">Yoga</h2><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Prevents Injury</h4><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Increases strength, flexibility, and muscle tone</h4><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Balances metabolism</h4><br />
+        <h4 style="text-align:center; color:white; text-align:left;">-Improves respiration, energy, and vitality!</h4><br />
+</div>
+    </div>
+<br />
+@*<div class="row">
+    <div class="col-md-4" style="float:left;">
+        <img src="~/DisplayImages/sport-bike-bicycle-fitness.jpg" style="width:600px; height:350px; border:solid; border-color:black; border-width:5px;" />
+    </div>
+    <div class="col-md-7>">
+        <p style="text-align:center; color:white;">edfghjmhgfdfghjkhgfdfghjkhgfdsfvgbnmbvcdcvbnmbvcdcvbn</p>
+    </div>
+</div>*@
+</body>

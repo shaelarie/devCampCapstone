@@ -5,24 +5,15 @@
 
 }
 
-<h2>Index</h2>
+<body style="background-color:#2c2151;">
 <br />
 <br />
 <br />
 <br />
 <div class="row">
-<div class="col-md-9">
+@*<div class="col-md-9">
 <table class="table" style="height: 100%;">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PictureDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTaken)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Picture)
         </th>
@@ -41,13 +32,13 @@
 }
 
 </table>
-</div>
-<div class="col-md-3">
+</div>*@
+<div class="col-md-12">
 @foreach (var item in Model)
 {
 
-    <img id="myImg" style="height:200px; width:300px;" src="@item.FileName">
-    <div class="row" style="text-align:center;">
+    <img id="myImg" style="height:400px; border-color:black; border-width:4px; width:400px; margin-left:725px;" src="@item.FileName">
+    <div class="row" style="text-align:center; color:white; text-decoration:none;">
     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
  @Html.ActionLink("Details", "Details", new { id = item.Id }) |
 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
@@ -63,17 +54,18 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>UPLOAD PICTURE TO SHOW YOUR PROGRESS</legend>
+    <fieldset style="text-align:center; color:white;">
+        <legend style="color:white;">UPLOAD PICTURE TO SHOW YOUR PROGRESS!</legend>
         <div class="editor-label">
-            <label>Upload a Picture To Show your Progress!</label>
+            <label style="color:white;">Upload</label>
         </div>
-        <div class="editor-field">
-            <input id="Picture" title="Upload a product image"
+        <div class="editor-field" style="margin-left:925px;">
+            <input style="font-weight:bolder; border-radius:10px;" id="Picture" title="Upload a product image"
                    type="file" name="file" />
-        </div>
-        <p><input type="submit" value="Upload" /></p>
+        </div><br />
+        <p><input style="font-weight:bolder; border-radius:10px;" type="submit" value="Upload" /></p>
     </fieldset>
 }
 
 </div>
+</body>

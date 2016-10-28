@@ -1,0 +1,42 @@
+﻿.background {
+    background-image: url(../DisplayImages/training-barbell-muscles-hands-39613.jpeg);
+    min-height:100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    vertical-align:middle;
+}
+
+
+.registerButton{
+    text-decoration: none; 
+    font: menu;
+    display: inline-block; 
+    padding: 2px 8px;
+    background-color:#463482; 
+    color: #444444;
+    height: 50px;
+    border-style: solid; 
+    border-width:thin;
+    border-radius: 7px;
+    width: 175px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 39%;
+    margin-left: 43%;
+
+}
+
+.registerButton a{
+    color: #5c5b60;
+    outline-color: white;
+    letter-spacing: 1px;
+    margin-top: 3px;
+    text-align: center;
+    display:inline-block;
+    vertical-align: middle;
+    align-content:space-around;
+}
+
