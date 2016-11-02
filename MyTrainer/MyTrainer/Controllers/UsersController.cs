@@ -306,5 +306,25 @@ namespace MyTrainer.Controllers
             var dailyCarbs = currentUser.CarbIntake.Value;
             return Json(dailyCarbs, JsonRequestBehavior.AllowGet);
         }
+        [Authorize]
+        public ActionResult ChatRoom()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult saveMessages(string text)
+        {
+            string userId = User.Identity.GetUserId();
+            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            Chatroom chat = new Chatroom
+            {
+                userId = currentUser.Id,
+                messages = text.ToString()
+            };
+            db.ChatDb.Add(chat);
+            db.SaveChanges();
+            return Json(chat, JsonRequestBehavior.AllowGet);
+        }
     }
 }

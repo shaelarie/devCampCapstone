@@ -2,7 +2,7 @@
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(MyTrainer.Startup))]
+[assembly: OwinStartup(typeof(MyTrainer.Startup))]
 namespace MyTrainer
 {
     public partial class Startup
@@ -10,9 +10,7 @@ namespace MyTrainer
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-
-            var config = new HubConfiguration();
-
+            app.MapSignalR();
         }
     }
 }

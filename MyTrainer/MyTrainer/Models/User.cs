@@ -38,6 +38,7 @@ namespace MyTrainer.Models
         [ForeignKey("MealPlan")]
         public int MealPlanId { get; set; }
         public MealPlan MealPlan { get; set; }
+        public static object Identity { get; internal set; }
     }
 
 }

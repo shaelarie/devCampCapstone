@@ -40,6 +40,7 @@ namespace MyTrainer.Models
         public DbSet<Meal3> Meal3Db { get; set; }
         public DbSet<Snack1> Snack1Db { get; set; }
         public DbSet<Snack2> Snack2Db { get; set; }
+        public DbSet<Chatroom> ChatDb { get; set; }
 
     }
 }

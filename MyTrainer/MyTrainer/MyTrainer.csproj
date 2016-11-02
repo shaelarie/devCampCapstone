@@ -218,6 +218,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GoalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -269,8 +270,13 @@
     <Compile Include="Migrations\201610240013052_eargrfg.Designer.cs">
       <DependentUpon>201610240013052_eargrfg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611012225446_yretku.cs" />
+    <Compile Include="Migrations\201611012225446_yretku.Designer.cs">
+      <DependentUpon>201611012225446_yretku.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Chatroom.cs" />
     <Compile Include="Models\Goals.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -508,6 +514,7 @@
     <Content Include="Views\UserPhotos\Details.cshtml" />
     <Content Include="Views\UserPhotos\Edit.cshtml" />
     <Content Include="Views\UserPhotos\Index.cshtml" />
+    <Content Include="Views\Users\ChatRoom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -553,6 +560,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610240013052_eargrfg.resx">
       <DependentUpon>201610240013052_eargrfg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611012225446_yretku.resx">
+      <DependentUpon>201611012225446_yretku.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
