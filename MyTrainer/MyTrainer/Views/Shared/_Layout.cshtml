@@ -8,7 +8,15 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/fullcalendarcss")
     @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        .boxContainer {
+            background-color: #99CCFF;
+            border: thick solid #808080;
+            padding: 20px;
+            margin: 20px;
+        }
 
+    </style>
 </head>
 <body>
     <header id="navBar">
@@ -36,11 +44,23 @@
             @RenderBody()
             @*<hr />*@
 
-    <footer>
-        @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+    <footer id="chat">
+        
+        <div class="boxContainer">
+            <h2 style="color:red;">Chat</h2>
+            <div id="scrollBox" style="height:100px;width:100%;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+                <ul id="discussion"></ul>
+            </div>
+            <input type="text" id="message" />
+            <input type="button" id="sendmessage" value="Send" />
+            <input type="hidden" id="displayname" />
+        </div>
     </footer>
     </div>
-
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/ChatScripts.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
