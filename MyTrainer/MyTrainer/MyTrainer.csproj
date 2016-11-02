@@ -274,6 +274,10 @@
     <Compile Include="Migrations\201611012225446_yretku.Designer.cs">
       <DependentUpon>201611012225446_yretku.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611021443122_rdfghjk.cs" />
+    <Compile Include="Migrations\201611021443122_rdfghjk.Designer.cs">
+      <DependentUpon>201611021443122_rdfghjk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chatroom.cs" />
@@ -353,6 +357,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
+    <Content Include="Scripts\ChatScripts.js" />
     <Content Include="Scripts\combodate.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
@@ -563,6 +568,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611012225446_yretku.resx">
       <DependentUpon>201611012225446_yretku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611021443122_rdfghjk.resx">
+      <DependentUpon>201611021443122_rdfghjk.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

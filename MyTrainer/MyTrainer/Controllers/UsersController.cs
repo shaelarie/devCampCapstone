@@ -320,11 +320,18 @@ namespace MyTrainer.Controllers
             Chatroom chat = new Chatroom
             {
                 userId = currentUser.Id,
+                name = currentUser.Username.ToString(),
                 messages = text.ToString()
             };
             db.ChatDb.Add(chat);
             db.SaveChanges();
             return Json(chat, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public ActionResult getMessages()
+        {
+            var messages = db.ChatDb.ToList();
+            return Json(messages, JsonRequestBehavior.AllowGet);
         }
     }
 }
