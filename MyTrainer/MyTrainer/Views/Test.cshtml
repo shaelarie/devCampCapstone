@@ -1,0 +1,112 @@
+﻿
+<style>
+    body,#main{
+  height:100vh;
+  font-family: 'Squada One', cursive;
+}
+#main{
+  display: flex;
+  width: 2200%;
+  align-items: center;
+}
+#indic{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 10px;
+  opacity:0.25;
+}
+#main>div{
+  margin: 0; 
+}
+.quote{
+  font-size: 296px;
+}
+.author{
+  font-size: 19px;
+  opacity:0;
+}
+.point{
+  color: red;
+}
+.btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: #d93434;  
+  background-image: linear-gradient(to bottom, #d93434, #ff6363);
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #961010;
+  background-image: linear-gradient(to bottom, #961010, #ff0000);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+</style>
+
+<div id="main">
+</div>
+<div id="indic">Hello</div>
+<div class="btn">Play</div>
+
+<script>
+    $(document).ready(function () {
+        var valBoucle = 0;
+        $('.btn').click(function (e) {
+            e.preventDefault();
+            tl.resume();
+        });
+
+        doJob = function () {
+            var quote = "The lower you fall, the higher you'll fly<span class='point'>.</span>";
+            var author = "Chuck Palahniuk";
+
+            $("<div class='quote'>" + quote + "<span class='author'>" + author + "</span></div>").appendTo("#main");
+
+            dquote = $('.quote');
+            dauthor = $('.author');
+
+            indic = function () {
+                dquotPos = dquote.position();
+                dquotPos = dquotPos.left;
+                $("<p>" + dquotPos + "</p>").appendTo("#indic");
+            }
+
+            boucle = function () {
+                console.log(valBoucle);
+                $(".quote").remove();
+                if (valBoucle < 1) {
+                    $('.btn').prepend("Re-");
+                }
+                valBoucle += 1;
+                doJob();
+            }
+
+            tl = new TimelineMax({ onUpdate: indic, onComplete: boucle });
+            tl
+              .set(dquote, { scale: 1.7, x: '-5000' })
+              .set(dauthor, { autoAlpha: 1 })
+              .pause()
+              .addLabel("lancement")
+              .to(dquote, 3, { scale: 0.4, x: '-1180', ease: Expo.easeIn })
+
+              .to(dquote, 2, { x: '-2100', ease: Expo.easeIn })
+              .set(dauthor, { autoAlpha: 0 })
+              .to(dquote, 0.5, { scale: 1.7, x: '-5000', ease: Expo.easeOut, delay: 2 })
+              .to(dauthor, 2, { autoAlpha: 1 });
+        }
+
+
+        doJob();
+    })
+</script>
+

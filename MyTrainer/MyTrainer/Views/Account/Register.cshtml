@@ -1,49 +1,203 @@
-﻿@model MyTrainer.Models.RegisterViewModel
+﻿
+@model MyTrainer.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
-<br />
-<br />
-<br />
-<h2>Register</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @@import 'https://fonts.googleapis.com/css?family=Squada+One';
+    </style>
+    <title>SignalR Simple Chat</title>
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+        body, #main {
+            height: auto;
+            font-family: 'Squada One', cursive;
+        }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        #main {
+            display: flex;
+            width: 2200%;
+            height: auto;
+            align-items: center;
+
+        }
+                #main {
+            display: flex;
+            width: 2200%;
+            align-items: center;
+        }
+        #indic {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            font-size: 10px;
+            opacity: 0.25;
+        }
+
+        #main > div {
+            margin: 0;
+        }
+
+        .quote {
+            font-size: 80px;
+        }
+
+        .author {
+            font-size: 16px;
+            opacity: 0;
+        }
+
+        .point {
+            color: red;
+        }
+
+        .btn {
+            /*position: fixed;
+            left:15%;
+            bottom:20%;*/
+            background: #d93434;
+            background-image: linear-gradient(to bottom, #d93434, #ff6363);
+            border-radius: 28px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 10px 20px 10px 20px;
+            text-decoration: none;
+            margin-top: 1px;
+
+        }
+
+            .btn:hover {
+                background: #961010;
+                background-image: linear-gradient(to bottom, #961010, #ff0000);
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+
+
+    <div id="main" style="margin-top:200px; margin-bottom: 1px;">
+</div>
+    <div class="row" id="form-group" style="margin-top:0px;">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Register" />
+                </div>
+            </div>
+        }
+    </div>
+    <div id="indic">Hello</div>
+    @*<div id="play" class="btn">Play</div>*@
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TimelineMax.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    @*<script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+        <script src="~/signalr/hubs"></script>*@
+    @*<script src="~/Scripts/ChatScripts.js"></script>*@
+    <script type="text/javascript">
+            $(function () {
+                $("#chat").hide();
+                $("header").hide();
+                $("#form-group").hide();
+            });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            var valBoucle = 0;
+            //$('#play').click(function (e) {
+            //    $('#play').hide(1000);
+            //    e.preventDefault();
+            //    tl.resume();
+
+            //});
+            doJob = function () {
+                var quote = "Even the Greatest was Once a Beginner. Take that First Step<span class='point'>.</span>";
+                var author = "with MY TRAINER";
+
+                $("<div class='quote'>" + quote + "<span class='author'>" + author + "</span></div>").appendTo("#main");
+
+                dquote = $('.quote');
+                dauthor = $('.author');
+
+                indic = function () {
+                    dquotPos = dquote.position();
+                    dquotPos = dquotPos.left;
+                    $("<p>" + dquotPos + "</p>").appendTo("#indic");
+                };
+
+                boucle = function () {
+                    console.log(valBoucle);
+                    $(".quote").remove();
+                    if (valBoucle < 1) {
+                        $('#form-group').show(1000);
+                      }
+                    valBoucle += 1;
+                    doJob();
+                };
+                tl = new TimelineMax({ onUpdate: indic, onComplete: boucle });
+                tl
+                  .set(dquote, { scale: 1.7, x: '-1350' })
+                  .set(dauthor, { autoAlpha: 1 })
+                  .pause()
+                  .addLabel("lancement")
+                  .to(dquote, 4, { scale: 0.7, x: '-270', ease: Expo.easeIn })
+
+                  .to(dquote, 5, { x: '-1100', ease: Expo.easeIn })
+                  .set(dauthor, { autoAlpha: 0 })
+                  .to(dquote, 0.7, { scale: 1.7, x: '-1350', ease: Expo.easeOut, delay: 0 })
+                  .to(dauthor, 2, { autoAlpha: 1 });
+            }
+
+
+            doJob();
+            tl.resume();
+        });
+    </script>
+</body>
+</html>

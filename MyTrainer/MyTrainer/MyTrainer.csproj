@@ -346,7 +346,10 @@
     <Content Include="DisplayImages\woman-jogger-jogging-sport.jpg" />
     <Content Include="DisplayImages\yoga-dancer-sky.jpeg" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\FFF_Tusj-demo.html" />
+    <Content Include="fonts\FFF_Tusj-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\stylesheet.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -356,6 +359,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\FFF_Tusj.ttf" />
+    <Content Include="fonts\FFF_Tusj-webfont.eot" />
+    <Content Include="fonts\FFF_Tusj-webfont.ttf" />
+    <Content Include="fonts\FFF_Tusj-webfont.woff" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\ChatScripts.js" />
     <Content Include="Scripts\combodate.js" />
@@ -520,6 +527,7 @@
     <Content Include="Views\UserPhotos\Edit.cshtml" />
     <Content Include="Views\UserPhotos\Index.cshtml" />
     <Content Include="Views\Users\ChatRoom.cshtml" />
+    <Content Include="Views\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
