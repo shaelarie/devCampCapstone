@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿function box() {
     displayMessages();
     var chat = $.connection.chatHub;
     chat.client.broadcastMessage = function (name, message) {
@@ -16,6 +16,7 @@
         $('#sendmessage').click(function () {
             var text = $('#message').val();
             chat.server.send($('#displayname').val(), $('#message').val());
+            console.log($('#message').val());
             $('#message').val('').focus();
             $.ajax({
                 url: "../Users/saveMessages",
@@ -27,7 +28,7 @@
             });
         });
     });
-});
+};
 function displayMessages() {
     var messages = '';
     $.ajax({
@@ -45,5 +46,6 @@ function displayMessages() {
                 objDiv.scrollTop = objDiv.scrollHeight;
             }
         }
-    })
+    });
+
 }

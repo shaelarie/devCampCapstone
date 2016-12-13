@@ -35,3 +35,9 @@ h5{
     border-color: #adadad;
     
 }
+div .container{
+            margin-left:0px;
+            margin-right: 0px;
+            width: 100% !important;
+            max-width: 100%;
+            }

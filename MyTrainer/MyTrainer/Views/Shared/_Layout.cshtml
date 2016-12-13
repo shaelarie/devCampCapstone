@@ -9,18 +9,59 @@
     @Styles.Render("~/Content/fullcalendarcss")
     @Scripts.Render("~/bundles/modernizr")
     <style type="text/css">
+        footer{
+          position:fixed;
+          bottom:0;
+          width:100%;
+        }
         .boxContainer {
-            background-color: #99CCFF;
-            border: thick solid #808080;
+            background-color:white;
+            border: thin solid #808080;
             padding: 20px;
             margin: 20px;
         }
 
+        div .navbar-collapse .collapse{
+            width: 100%;
+            margin-right: 0px;
+        }
+        a{
+            padding-left: 0px;
+        }
+        a .navbar-brand{
+            color: orange;
+        }
+        #title{
+            color: #b81d18;
+            font-weight: bolder;
+        }
+        #title:hover{
+            color: #757575;
+        }
+        #navBarText{
+            color: black !important;
+            font-weight: bold;
+        }
+        #navBarText:hover{
+                color: #757575 !important;
+            }
+        #chat{
+            width:100%; 
+            background-color: #b6b6b6;
+            left:0px;
+            font-weight: bolder;
+            color: #004687;
+            border-color: #f0f0f0;
+            border-width: 1px;
+            border-radius: 6px;
+            letter-spacing: 1px;
+        }
+
     </style>
 </head>
-<body>
-    <header id="navBar">
-        <div class="navbar navbar-inverse navbar-fixed-top">
+<body style="background-color: #202020; color: white;">
+    <header id="navBar" style="margin-right: 0px;">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #B6b6b6; text-align:left; margin-left:0px; left: 0px; margin-right: 0px; width: 100%;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -28,15 +69,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("MY TRAINER", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Your Schedule", "Index", "UserSchedules")</li>
+                    <ul class="nav navbar-nav" style="text-align: left;">
+                        <li>@Html.ActionLink("MY TRAINER", "Index", "Users", new { area = "" }, new { @class = "navbar-brand", id="title"})</li>
+                        <li>@Html.ActionLink("Home", "Index", "Users", new { area = "" }, new { id="navBarText"})</li>
+                        <li>@Html.ActionLink("Your Schedule", "Index", "UserSchedules", new { area = "" }, new { id = "navBarText" })</li>
                     </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
+
+                        @Html.Partial("_LoginPartial")
+
+                        
+</div>
             </div>
         </div>
     </header>
@@ -44,18 +88,23 @@
             @RenderBody()
             @*<hr />*@
 
-    <footer id="chat">
-        
-        <div class="boxContainer">
-            <h2 style="color:red;">Chat</h2>
-            <div id="scrollBox" style="height:100px;width:100%;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-                <ul id="discussion"></ul>
+        <footer id="chat" style="width:100%; color: black; z-index: 1000;">
+            <div class="dropup">
+                <button id="chat" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" onclick="box()">
+                    CHAT HERE
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu boxContainer" style="width: 98%;">
+                    @*<h2 style="color:#b81d18;">CHAT</h2>*@
+                    <div id="scrollBox" style="height:300px;width:100%;font:16px/26px Georgia, Garamond, Serif; overflow:auto;">
+                        <ul id="discussion"></ul>
+                    </div>
+                    <input type="text" id="message" />
+                    <input type="button" id="sendmessage" value="Send" />
+                    <input type="hidden" id="displayname" />
+                </div>
             </div>
-            <input type="text" id="message" />
-            <input type="button" id="sendmessage" value="Send" />
-            <input type="hidden" id="displayname" />
-        </div>
-    </footer>
+        </footer>
     </div>
     <script src="~/Scripts/jquery-1.11.3.min.js"></script>
     <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>

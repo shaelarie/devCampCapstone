@@ -230,53 +230,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610211835422_s.cs" />
-    <Compile Include="Migrations\201610211835422_s.Designer.cs">
-      <DependentUpon>201610211835422_s.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610211952393_sh.cs" />
-    <Compile Include="Migrations\201610211952393_sh.Designer.cs">
-      <DependentUpon>201610211952393_sh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610212327004_shshg.cs" />
-    <Compile Include="Migrations\201610212327004_shshg.Designer.cs">
-      <DependentUpon>201610212327004_shshg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610222225314_revaevr.cs" />
-    <Compile Include="Migrations\201610222225314_revaevr.Designer.cs">
-      <DependentUpon>201610222225314_revaevr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610222232148_reqb.cs" />
-    <Compile Include="Migrations\201610222232148_reqb.Designer.cs">
-      <DependentUpon>201610222232148_reqb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610231850008_iygv.cs" />
-    <Compile Include="Migrations\201610231850008_iygv.Designer.cs">
-      <DependentUpon>201610231850008_iygv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610231908239_iygvh8i.cs" />
-    <Compile Include="Migrations\201610231908239_iygvh8i.Designer.cs">
-      <DependentUpon>201610231908239_iygvh8i.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610231910449_iygvh8ivrs.cs" />
-    <Compile Include="Migrations\201610231910449_iygvh8ivrs.Designer.cs">
-      <DependentUpon>201610231910449_iygvh8ivrs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610240009168_earg.cs" />
-    <Compile Include="Migrations\201610240009168_earg.Designer.cs">
-      <DependentUpon>201610240009168_earg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610240013052_eargrfg.cs" />
-    <Compile Include="Migrations\201610240013052_eargrfg.Designer.cs">
-      <DependentUpon>201610240013052_eargrfg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611012225446_yretku.cs" />
-    <Compile Include="Migrations\201611012225446_yretku.Designer.cs">
-      <DependentUpon>201611012225446_yretku.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611021443122_rdfghjk.cs" />
-    <Compile Include="Migrations\201611021443122_rdfghjk.Designer.cs">
-      <DependentUpon>201611021443122_rdfghjk.cs</DependentUpon>
+    <Compile Include="Migrations\201611222034318_ytguh.cs" />
+    <Compile Include="Migrations\201611222034318_ytguh.Designer.cs">
+      <DependentUpon>201611222034318_ytguh.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -332,6 +288,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="DisplayImages\avatar-1577909_1280.png" />
     <Content Include="DisplayImages\bigJeans.jpeg" />
     <Content Include="DisplayImages\breakfast-orange-lemon-oranges.jpg" />
     <Content Include="DisplayImages\food-healthy-morning-cereals.jpg" />
@@ -544,41 +501,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610211835422_s.resx">
-      <DependentUpon>201610211835422_s.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610211952393_sh.resx">
-      <DependentUpon>201610211952393_sh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610212327004_shshg.resx">
-      <DependentUpon>201610212327004_shshg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610222225314_revaevr.resx">
-      <DependentUpon>201610222225314_revaevr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610222232148_reqb.resx">
-      <DependentUpon>201610222232148_reqb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610231850008_iygv.resx">
-      <DependentUpon>201610231850008_iygv.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610231908239_iygvh8i.resx">
-      <DependentUpon>201610231908239_iygvh8i.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610231910449_iygvh8ivrs.resx">
-      <DependentUpon>201610231910449_iygvh8ivrs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610240009168_earg.resx">
-      <DependentUpon>201610240009168_earg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610240013052_eargrfg.resx">
-      <DependentUpon>201610240013052_eargrfg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611012225446_yretku.resx">
-      <DependentUpon>201611012225446_yretku.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611021443122_rdfghjk.resx">
-      <DependentUpon>201611021443122_rdfghjk.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611222034318_ytguh.resx">
+      <DependentUpon>201611222034318_ytguh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

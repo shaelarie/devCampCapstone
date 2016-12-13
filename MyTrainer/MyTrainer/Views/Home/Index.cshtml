@@ -55,6 +55,7 @@ font-size: 180px;
 font-weight: 700; 
 line-height: 64px; 
 
+width: 80%;
 text-transform: uppercase;
 letter-spacing: 1px;
 bottom: 50px;
@@ -68,13 +69,16 @@ text-decoration: none;
 height:auto;
 text-transform: uppercase;
 letter-spacing: 1px;
-left: 1600px;
-
+text-align: right;
+right: 20px;
 bottom: 35px;
-font-size: 70px;
+font-size: 30px;
 position: fixed;
 }
-a{
+#navBarText{
+    color: white !important;
+}
+a {
     color: white;
 }
 body {
@@ -94,12 +98,11 @@ body {
 }
     </style>
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12" id="Title">
         <h1 style="text-align: left; position:center;">MY TRAINER</h1>
+            <p id="Title">@Html.Partial("_LoginPartial")</p>
             </div>
-<div class="col-sm-1" id="Title">
-        <p id="Title">@Html.Partial("_LoginPartial")</p>
-</div>
+
 </div>
 
 

@@ -10,6 +10,7 @@
 <br />
 <br />
 <br />
+
 <div class="row">
 <div class="col-md-12">
 @foreach (var item in Model)
@@ -17,16 +18,11 @@
 
     <img id="myImg" style="height:400px; border-color:black; border-width:4px; width:400px; margin-left:725px;" src="@item.FileName">
     <div class="row" style="text-align:center; color:white; text-decoration:none;">
-    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
- @Html.ActionLink("Details", "Details", new { id = item.Id }) |
 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </div>
 }
 
-</div>
-
-</div>
-<div class="row">
+<div class="row" style="margin-top: 5px;">
 @using (Html.BeginForm("FileUpload", "UserPhotos", null, FormMethod.Post,
                                           new { enctype = "multipart/form-data" }))
 {
@@ -35,13 +31,15 @@
     <fieldset style="text-align:center; color:white;">
         <legend style="color:white;">UPLOAD PICTURE TO SHOW YOUR PROGRESS!</legend>
         <div class="editor-label">
-            <label style="color:white;">Upload</label>
+            <label style="color:white;">Upload Here...</label>
         </div>
-        <div class="editor-field" style="margin-left:925px;">
-            <input style="font-weight:bolder; border-radius:10px;" id="Picture" title="Upload a product image"
+        <div class="editor-field col-sm-12" style="position: absolute; margin: auto; align-content: center;">
+            <input style="font-weight:bolder; border-radius:10px; margin: auto; position: absolute; left: 0; right:0; width: 200px;" id="Picture" title="Upload a product image"
                    type="file" name="file" />
-        </div><br />
-        <p><input style="font-weight:bolder; border-radius:10px;" type="submit" value="Upload" /></p>
+        </div>
+        <br />
+        <br />
+        <p><input style="font-weight:bolder; border-radius:5px;" type="submit" value="Upload" /></p>
     </fieldset>
 }
 

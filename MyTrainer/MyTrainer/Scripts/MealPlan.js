@@ -8,14 +8,14 @@
         type: "GET",
         success: function (data) {
             console.log(data);
-            calories += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[4] + '%; background-color: #4ecded">';
-            calories += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[0] + ' ' + data[4] + '% of your daily caloric intake</p></div>';
-            protein += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[5] + '%; background-color: #4ecded">';
-            protein += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[9] + '/' + data[1] + '  '+data[5] + '% of your daily protein intake</p></div>';
-            carbs += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[7] + '%; background-color: #4ecded">';
-            carbs += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[11] + '/' + data[3] + ' '+data[7] + '% of your daily carb intake</p></div>';
-            fat += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[6] + '%; background-color: #4ecded">';
-            fat += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[2] +' '+ data[6] + '% of your daily fat intake</p></div>';
+            calories += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[4] + '%; background-color: #b81d18">';
+            calories += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[0] + ' ' + data[4] + '% of your daily caloric intake</p></div>';
+            protein += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[5] + '%; background-color: #b81d18">';
+            protein += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[9] + '/' + data[1] + '  ' + data[5] + '% of your daily protein intake</p></div>';
+            carbs += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[7] + '%; background-color: #b81d18">';
+            carbs += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[11] + '/' + data[3] + ' ' + data[7] + '% of your daily carb intake</p></div>';
+            fat += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[6] + '%; background-color: #b81d18">';
+            fat += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[10] + '/' + data[2] + ' ' + data[6] + '% of your daily fat intake</p></div>';
             $('#calorieBar').html(calories);
             $('#proteinBar').html(protein);
             $('#carbBar').html(carbs);
@@ -34,14 +34,14 @@ function bars() {
         type: "GET",
         success: function (data) {
             console.log(data);
-            calories += '<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[4] + '%; background-color: #4ecded">';
-            calories += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[0] + ' ' + data[4] + '%</p></div>';
-            protein += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[5] + '%; background-color: #4ecded">';
-            protein += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[9] + '/' + data[1] + ' ' + data[5] + '%</p></div>';
-            carbs += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[7] + '%; background-color: #4ecded">';
-            carbs += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[11] + '/' + data[3] + ' '+ data[7] + '%</p></div>';
-            fat += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[6] + '%; background-color: #4ecded">';
-            fat += '<p style="text-align: left; color: #4c4b4b; letter-spacing:1px; font-weight:bold;">' + data[2] + '/' + data[10] + ' ' + data[6] + '%</p></div>';
+            calories += '<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[4] + '%; background-color: #b81d18">';
+            calories += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[0] + ' ' + data[4] + '% of your daily caloric intake</p></div>';
+            protein += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[5] + '%; background-color: #b81d18">';
+            protein += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[9] + '/' + data[1] + ' ' + data[5] + '% of your daily protein intake</p></div>';
+            carbs += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[7] + '%; background-color: #b81d18">';
+            carbs += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[11] + '/' + data[3] + ' ' + data[7] + '% of your daily carb intake</p></div>';
+            fat += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[6] + '%; background-color: #b81d18">';
+            fat += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[10] + '/' + data[2] + ' ' + data[6] + '% of your daily fat intake</p></div>';
             $('#calorieBar').html(calories);
             $('#proteinBar').html(protein);
             $('#carbBar').html(carbs);
@@ -105,11 +105,11 @@ function getMacros(macros) {
     displayInfo += '<div class="row" style="height: 20%; width: 100%;"> Total Fat content:<div id="foodFat"> ' + macros.fat + '</div></div>';
     displayInfo += '<div class="row" style="height: 20%; width: 100%;"> Carb Content:<div id="foodCarbs">' + macros.carbs + '</div></div>';
     displayInfo += '<div class="row" style="height: 20%; width: 100%;"> Serving Size(grams):<div id="foodServing">' + macros.servingSize + '</div></div></div>';
-    displayInfo += '<div class="col-md-3"><div class="row"><button type="button" onclick="saveToMeal1()">Add to Your First Meal</button></div><br>';
-    displayInfo += '<div class="row"><button type="button" onclick="saveToSnack1()">Add Item to Your First Snack</button></div><br>';
-    displayInfo += '<div class="row"><button type="button" onclick="saveToMeal2()">Add Item to Your Second Meal</button></div><br>';
-    displayInfo += '<div class="row"><button type="button" onclick="saveToSnack2()">Add Item to Your Second Snack</button></div><br>';
-    displayInfo += '<div class="row"><button type="button" onclick="saveToMeal3()">Add Item to Your Last Meal</button></div></div><br>';
+    displayInfo += '<div class="col-md-3"><div class="row"><button type="button" onclick="saveToMeal1()" style="color:black; border-radius: 5px;">Add to Your First Meal</button></div><br>';
+    displayInfo += '<div class="row"><button type="button" onclick="saveToSnack1()" style="color:black; border-radius: 5px;">Add Item to Your First Snack</button></div><br>';
+    displayInfo += '<div class="row"><button type="button" onclick="saveToMeal2()" style="color:black; border-radius: 5px;">Add Item to Your Second Meal</button></div><br>';
+    displayInfo += '<div class="row"><button type="button" onclick="saveToSnack2()" style="color:black; border-radius: 5px;">Add Item to Your Second Snack</button></div><br>';
+    displayInfo += '<div class="row"><button type="button" onclick="saveToMeal3()" style="color:black; border-radius: 5px;">Add Item to Your Last Meal</button></div></div><br>';
     return $('#meal1').html(displayInfo);
 }
 function loadMeals() {
@@ -146,14 +146,14 @@ function getMeal1() {
         url: "../MealPlans/getMeal1",
         type: "GET",
         success: function (data) {
-            console.log(data);
+            console.log("THIS ONE" + data);
             for (var i = 0; i < data.length; i++) {
                 newData[i] = data[i];
             }
             for (var i = 0; i < newData.length; i++) {
                 meal1Display += '<input type="hidden" id="meal1Id" value="' + newData[i].Id + '"/>';
                 meal1Display += '<div class="row" style="height: auto;">Food Item: ' + newData[i].FoodItem + '</div><div class="row">Serving Size(grams): ' + newData[i].servingSize + '</div>';
-                meal1Display += '<button type="button" onClick="deleteMeal1(\'' + newData[i].Id + '\')">Remove</button>';
+                meal1Display += '<button type="button" onClick="deleteMeal1(\'' + newData[i].Id + '\')" style="color:black; font-weight: bold; border-radius: 5px;">Remove</button>';
             }
             return $('#meal1Display').html(meal1Display);
         }
@@ -192,7 +192,7 @@ function getSnack1() {
             for (var i = 0; i < newData.length; i++) {
                 meal1Display += '<input type="hidden" id="meal1Id" value="' + newData[i].Id + '"/>';
                 meal1Display += '<div class="row" style="height: auto;">Food Item: ' + newData[i].FoodItem + '</div><div class="row">Serving Size(grams): ' + newData[i].servingSize + '</div>';
-                meal1Display += '<button type="button" onClick="deleteSnack1(\'' + newData[i].Id + '\')">Remove</button>';
+                meal1Display += '<button type="button" onClick="deleteSnack1(\'' + newData[i].Id + '\')" style="color:black; font-weight: bold; border-radius: 5px;">Remove</button>';
             }
             return $('#snack1Display').html(meal1Display);
         }
@@ -231,7 +231,7 @@ function getMeal2() {
             for (var i = 0; i < newData.length; i++) {
                 meal1Display += '<input type="hidden" id="meal1Id" value="' + newData[i].Id + '"/>';
                 meal1Display += '<div class="row" style="height: auto;">Food Item: ' + newData[i].FoodItem + '</div><div class="row">Serving Size(grams): ' + newData[i].servingSize + '</div>';
-                meal1Display += '<button type="button" onClick="deleteMeal2(\'' + newData[i].Id + '\')">Remove</button>';
+                meal1Display += '<button type="button" onClick="deleteMeal2(\'' + newData[i].Id + '\')" style="color:black; font-weight: bold; border-radius: 5px;">Remove</button>';
             }
             return $('#meal2Display').html(meal1Display);
         }
@@ -270,7 +270,7 @@ function getSnack2() {
             for (var i = 0; i < newData.length; i++) {
                 meal1Display += '<input type="hidden" id="meal1Id" value="' + newData[i].Id + '"/>';
                 meal1Display += '<div class="row" style="height: auto;">Food Item: ' + newData[i].FoodItem + '</div><div class="row">Serving Size(grams): ' + newData[i].servingSize + '</div>';
-                meal1Display += '<button type="button" onClick="deleteSnack2(\'' + newData[i].Id + '\')">Remove</button>';
+                meal1Display += '<button type="button" onClick="deleteSnack2(\'' + newData[i].Id + '\')" style="color:black; font-weight: bold; border-radius: 5px;">Remove</button>';
             }
             return $('#snack2Display').html(meal1Display);
         }
@@ -309,7 +309,7 @@ function getMeal3() {
             for (var i = 0; i < newData.length; i++) {
                 meal1Display += '<input type="hidden" id="meal1Id" value="' + newData[i].Id + '"/>';
                 meal1Display += '<div class="row" style="height: auto;">Food Item: ' + newData[i].FoodItem + '</div><div class="row">Serving Size(grams): ' + newData[i].servingSize + '</div>';
-                meal1Display += '<button type="button" onClick="deleteMeal3(\'' + newData[i].Id + '\')">Remove</button>';
+                meal1Display += '<button type="button" onClick="deleteMeal3(\'' + newData[i].Id + '\')" style="color:black; font-weight: bold; border-radius: 5px;">Remove</button>';
             }
             return $('#meal3Display').html(meal1Display);
         }

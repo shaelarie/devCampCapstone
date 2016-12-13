@@ -7,13 +7,13 @@ namespace MyTrainer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class iygv : IMigrationMetadata
+    public sealed partial class ytguh : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(iygv));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ytguh));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610231850008_iygv"; }
+            get { return "201611222034318_ytguh"; }
         }
         
         string IMigrationMetadata.Source

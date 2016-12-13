@@ -50,7 +50,7 @@ body .fc { /* extra precedence to overcome jqui */
 }
 
 .fc-unthemed .fc-today {
-	background: #fcf8e3;
+	background: rgba(0, 70, 135, .3);
 }
 
 .fc-highlight { /* when user is selecting cells */
@@ -926,7 +926,7 @@ a.fc-more:hover {
 .fc-basic-view .fc-week-number,
 .fc-basic-view .fc-day-number {
 	padding: 2px;
-    color: black;
+    color: white;
     font-weight:bolder;
     letter-spacing: 1px;
 }

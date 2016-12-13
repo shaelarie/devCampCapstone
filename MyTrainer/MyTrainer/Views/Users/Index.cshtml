@@ -19,89 +19,70 @@
             width: 70%;
             margin: auto;
         }
+        img{
+            max-height: 100%;
+        }
     </style>
 </head>
-<body>
+<body style="float: none;">
     <br />
     <br />
     <br />
 
-    <table class="table">
+    <table class="table" style="text-align:center; align-content:center; left: 0; right: 0;">
+@foreach (var item in Model)
+{
         <tr>
-            <th >
-                Your Current Weight
-            </th>
-            <th >
-                Your Current Height
-            </th>
-            <th>
-                Your Current Age
-            </th>
+            <td>
+                @Html.ActionLink("Update your Profile", "Edit", "Goals")
+            </td>
+            <td>
+                @Html.ActionLink("Meal Plan", "Index", "MealPlans")
+            </td>
+            <td>
+                @Html.ActionLink("Find Workouts", "Index", "Goals")
+            </td>
+            <td>
+                @Html.ActionLink("Edit your Photos", "Index", "UserPhotos")
+            </td>
         </tr>
-
+}
+    </table>
+    <table class="table" style="left: 0; right: 0;">
         @foreach (var item in Model)
         {
             <tr>
-                @Html.HiddenFor(modelItem => item.Id)
-                @Html.HiddenFor(modelItem => item.Username)
-                @Html.HiddenFor(modelItem => item.LoginId)
-
-                <td style="width: 20%; text-align: center;">
-                    @Html.DisplayFor(modelItem => item.Weight)
-                </td>
-                <td style="width: 20%; text-align: center;">
-                    @Html.DisplayFor(modelItem => item.HeightFt)'
+                <th>
+                    Your Current Weight: @Html.DisplayFor(modelItem => item.Weight)
+                </th>
+                <th>
+                    Your Current Height: @Html.DisplayFor(modelItem => item.HeightFt)'
                     @Html.DisplayFor(modelItem => item.HeightIn)"
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.age)
-                </td>
+                </th>
+                <th>
+                    Your Current Age: @Html.DisplayFor(modelItem => item.age)
+                </th>
             </tr>
-            <tr>
-                <td style="width: 60%; text-align: center; font-size:30px;">
-                    @Html.ActionLink("Update your Profile", "Edit", "Goals") |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Meal Plan", "Index", "MealPlans") |
-                    @Html.ActionLink("Your Goals", "Index", "Goals") |
-                    @Html.ActionLink("View Your Progress", "Index", "UserPhotos") |
-                </td>
-                <td style="width: 40%; text-align: right;"></td>
-                <td style="width: 40%; text-align: right;"></td>
-            </tr>
+            @Html.HiddenFor(modelItem => item.Id)
+            @Html.HiddenFor(modelItem => item.Username)
+            @Html.HiddenFor(modelItem => item.LoginId)
         }
 
 
+
     </table>
-    @*<div class="container" style="width:100%;">
+    <div class="container" style="width:50%; float: none; left: 0; right: 0; margin: auto; height: auto;">
         <br>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="height: auto; width: 50%; margin: auto;">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
+            <ol id="sliders" class="carousel-indicators">
+
             </ol>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="~/DisplayImages/pexels-photo-136404.jpeg" alt="Chania" width="460" height="345">
-                </div>
-
-                <div class="item">
-                    <img src="~/DisplayImages/pexels-photo.jpg" alt="Chania" width="460" height="345">
-                </div>
-
-                <div class="item">
-                    <img src="~/DisplayImages/food-healthy-morning-cereals.jpg" alt="Flower" width="460" height="345">
-                </div>
-
-                <div class="item">
-                    <img src="~/DisplayImages/bigJeans.jpeg" alt="Flower" width="460" height="345">
-                </div>
+            <div id="pictureHolder" class="carousel-inner" role="listbox" style="left: 0; right: 0; bottom: 5px;">
             </div>
-
+            
             <!-- Left and right controls -->
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -112,7 +93,41 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    </div>*@
-
+    </div>
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script>
+        ///display user images in carousel
+        $(function () {
+            $.ajax({
+                url: "../../Users/getPictures",
+                type: "GET",
+                success: function (data) {
+                    if (data != null) {
+                        var html = '';
+                        var sliders = '';
+                        console.log(data);
+                        if (data.length < 1 || data == null) {
+                            html += '<div class="item active" style="height: 100%;"><h1 style="z-index: 1; text-align: center;">Your Uploaded Images will appear here...</h1><img src="../../DisplayImages/avatar-1577909_1280.png" /></div>';
+                            sliders += '<li data-target="#myCarousel" data-slide-to="0" class="active"></li>';
+                        }
+                        if (data.length >= 1) {
+                            sliders += '<li data-target="#myCarousel" data-slide-to="0" class="active"></li>';
+                            html += '<div class="item active">' + '<img src="..' + data[0] + '"height="auto"></div>';
+                            if (data.length > 1) {
+                                $.each(data, function (key, value) {
+                                    var i = 1;
+                                    sliders += '<li data-target="#myCarousel" data-slide-to="' + i + '"></li>';
+                                    html += '<div class="item"><img src="..' + data[i] + '" width="160" height="45"></div>';
+                                    i++;
+                                })
+                            }
+                        }
+                        $('#sliders').html(sliders);
+                        $('#pictureHolder').html(html);
+                    }
+                }
+            });
+        })
+    </script>
 </body>
 </html>

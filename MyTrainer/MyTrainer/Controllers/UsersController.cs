@@ -333,5 +333,13 @@ namespace MyTrainer.Controllers
             var messages = db.ChatDb.ToList();
             return Json(messages, JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public ActionResult getPictures()
+        {
+            string userId = User.Identity.GetUserId();
+            User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+            var userPhotos = db.PhotoDb.Where(x => x.UserId == currentUser.Id).Select(x => x.FileName).ToArray();            
+            return Json(userPhotos, JsonRequestBehavior.AllowGet);
+        }
     }
 }
