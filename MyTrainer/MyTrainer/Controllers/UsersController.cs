@@ -341,5 +341,23 @@ namespace MyTrainer.Controllers
             var userPhotos = db.PhotoDb.Where(x => x.UserId == currentUser.Id).Select(x => x.FileName).ToArray();            
             return Json(userPhotos, JsonRequestBehavior.AllowGet);
         }
+        //[HttpGet]
+        //public ActionResult getHeight()
+        //{
+        //    string userId = User.Identity.GetUserId();
+        //    User currentUser = db.UserDb.FirstOrDefault(x => x.LoginId == userId);
+        //    string heightWeight;
+        //    var userHeightFeet = db.UserDb.Where(x => x.LoginId == currentUser.LoginId).Select(x => x.HeightFt);
+        //    var userHeightInches = db.UserDb.Where(x => x.LoginId == currentUser.LoginId).Select(x => x.HeightIn);
+        //    if(userHeightFeet == null || userHeightInches == null)
+        //    {
+        //        heightWeight = userHeightFeet.ToString();
+        //    }
+        //    else if (userHeightFeet != null && userHeightInches != null)
+        //    {
+        //        heightWeightNull = false;
+        //    }
+        //    return Json(heightWeight.ToString(), JsonRequestBehavior.AllowGet);
+        //}
     }
 }

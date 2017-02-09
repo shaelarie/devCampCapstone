@@ -56,11 +56,17 @@
             border-radius: 6px;
             letter-spacing: 1px;
         }
-
+        body{
+            background-color: white; 
+            color: black;
+        }
+        header .navbar{
+            margin-right: 0px;
+        }
     </style>
 </head>
-<body style="background-color: #202020; color: white;">
-    <header id="navBar" style="margin-right: 0px;">
+<body>
+    <header id="navBar">
         <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #B6b6b6; text-align:left; margin-left:0px; left: 0px; margin-right: 0px; width: 100%;">
             <div class="container">
                 <div class="navbar-header">
@@ -86,8 +92,6 @@
     </header>
     <div class="col-lg-12">
             @RenderBody()
-            @*<hr />*@
-
         <footer id="chat" style="width:100%; color: black; z-index: 1000;">
             <div class="dropup">
                 <button id="chat" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" onclick="box()">
@@ -95,7 +99,6 @@
                     <span class="caret"></span>
                 </button>
                 <div class="dropdown-menu boxContainer" style="width: 98%;">
-                    @*<h2 style="color:#b81d18;">CHAT</h2>*@
                     <div id="scrollBox" style="height:300px;width:100%;font:16px/26px Georgia, Garamond, Serif; overflow:auto;">
                         <ul id="discussion"></ul>
                     </div>

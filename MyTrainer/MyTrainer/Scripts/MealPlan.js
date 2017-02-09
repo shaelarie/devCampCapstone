@@ -1,27 +1,28 @@
 ﻿$(document).ready(function () {
-    var calories = '';
-    var protein = '';
-    var fat = '';
-    var carbs = '';
-    $.ajax({
-        url: "../Users/getMaxMacros",
-        type: "GET",
-        success: function (data) {
-            console.log(data);
-            calories += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[4] + '%; background-color: #b81d18">';
-            calories += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[0] + ' ' + data[4] + '% of your daily caloric intake</p></div>';
-            protein += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[5] + '%; background-color: #b81d18">';
-            protein += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[9] + '/' + data[1] + '  ' + data[5] + '% of your daily protein intake</p></div>';
-            carbs += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[7] + '%; background-color: #b81d18">';
-            carbs += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[11] + '/' + data[3] + ' ' + data[7] + '% of your daily carb intake</p></div>';
-            fat += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[6] + '%; background-color: #b81d18">';
-            fat += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[10] + '/' + data[2] + ' ' + data[6] + '% of your daily fat intake</p></div>';
-            $('#calorieBar').html(calories);
-            $('#proteinBar').html(protein);
-            $('#carbBar').html(carbs);
-            $('#fatBar').html(fat);
-        }
-    })
+    //var calories = '';
+    //var protein = '';
+    //var fat = '';
+    //var carbs = '';
+    //$.ajax({
+    //    url: "../Users/getMaxMacros",
+    //    type: "GET",
+    //    success: function (data) {
+    //        console.log(data);
+    //        calories += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[4] + '%; background-color: #b81d18">';
+    //        calories += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[8] + '/' + data[0] + ' ' + data[4] + '% of your daily caloric intake</p></div>';
+    //        protein += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[5] + '%; background-color: #b81d18">';
+    //        protein += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[9] + '/' + data[1] + '  ' + data[5] + '% of your daily protein intake</p></div>';
+    //        carbs += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[7] + '%; background-color: #b81d18">';
+    //        carbs += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[11] + '/' + data[3] + ' ' + data[7] + '% of your daily carb intake</p></div>';
+    //        fat += ' <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:' + data[6] + '%; background-color: #b81d18">';
+    //        fat += '<p style="text-align: left; color: #202020; letter-spacing:1px; font-weight:bold;">' + data[10] + '/' + data[2] + ' ' + data[6] + '% of your daily fat intake</p></div>';
+    //        $('#calorieBar').html(calories);
+    //        $('#proteinBar').html(protein);
+    //        $('#carbBar').html(carbs);
+    //        $('#fatBar').html(fat);
+    //    }
+    //})
+    bars();
 })
 
 function bars() {

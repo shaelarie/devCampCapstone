@@ -3,117 +3,47 @@
 }
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="~/Content/HomePage.css" />
-    <link rel="stylesheet" href="~/fonts/stylesheet.css" />
+    <style type="text/css">
+                    @@font-face {
+                        font-family: headline;
+                        src: url(../../fonts/FFF_Tusj.ttf);
+                    }
+
+                    h1 {
+                        color: black;
+                        font-family: headline;
+                        left: 0;
+                        right: 0;
+                        width: 100%;
+                        font-size: 20vh;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        text-align: center;
+                        white-space: nowrap;
+                    }
+                    body {
+                        background-color: white;
+                        color: black;
+                    }
+    </style>
 </head>
 <body>
-    <style type="text/css">
-@@font-face{
-        font-family: headline;
-        src: url(../../fonts/FFF_Tusj.ttf)
-}
-
-        /*#hold {
-            height: 15%;
-            width: auto;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            margin-left:6%;
-            position: fixed;
 
 
-
-            
-        }*/
-
-        div.transbox {
-  margin: 30px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  opacity: 0.4;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
-}
-
-p {
-  margin: 5%;
-color: white; font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 28px; margin: 0 0 48px; 
-}
-div.transbox h1 {
-  margin: 5%;
-  font-weight: bold;
-  color: #334431;
-  opacity: 1;
-}
-h1{
-color: white; 
-font-family: headline; 
-font-size: 180px; 
-font-weight: 700; 
-line-height: 64px; 
-
-width: 80%;
-text-transform: uppercase;
-letter-spacing: 1px;
-bottom: 50px;
-left: 10px;
-position: fixed;
-}
-#Title{
-color: white; 
-text-decoration: none;
- font-family: headline; 
-height:auto;
-text-transform: uppercase;
-letter-spacing: 1px;
-text-align: right;
-right: 20px;
-bottom: 35px;
-font-size: 30px;
-position: fixed;
-}
-#navBarText{
-    color: white !important;
-}
-a {
-    color: white;
-}
-body {
-  background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, .6),
-      rgba(0, 0, 0, .6)
-    ),
-    url(../../DisplayImages/training-barbell-muscles-hands-39613.jpeg);
-              z-index:-2; 
-            background-size:cover; 
-            height: 100vh;
-            width: 100%;
-            /*background-repeat:no-repeat;*/ 
-            /*min-height: 100%;*/ 
-
-}
-    </style>
-    <div class="row">
-        <div class="col-sm-12" id="Title">
-        <h1 style="text-align: left; position:center;">MY TRAINER</h1>
-            <p id="Title">@Html.Partial("_LoginPartial")</p>
-            </div>
-
-</div>
+<h1 id="h1">MY TRAINER</h1>
 
 
 
 
-    @*<span class="glyphicon glyphicon-plus-sign"></span>*@
-    <script src="~/Scripts/jquery-1.11.3.js"></script>
-    <script type="text/javascript">
-            $(function () {
+
+
+
+<script src="~/Scripts/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
                 $("#chat").hide();
                 $("header").hide();
             });
-    </script>
+</script>
+
 </body>

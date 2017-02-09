@@ -29,23 +29,28 @@
     <br />
     <br />
 
-    <table class="table" style="text-align:center; align-content:center; left: 0; right: 0;">
+    <table class="table" style="text-align:left; left: 0;">
 @foreach (var item in Model)
 {
-        <tr>
-            <td>
+
+            <tr>
+                <td>
                 @Html.ActionLink("Update your Profile", "Edit", "Goals")
-            </td>
-            <td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
                 @Html.ActionLink("Meal Plan", "Index", "MealPlans")
-            </td>
-            <td>
+                    </td>
+            </tr>
+            <tr>
                 @Html.ActionLink("Find Workouts", "Index", "Goals")
-            </td>
-            <td>
+            </tr>
+            <tr>
                 @Html.ActionLink("Edit your Photos", "Index", "UserPhotos")
-            </td>
-        </tr>
+            </tr>
+
 }
     </table>
     <table class="table" style="left: 0; right: 0;">
