@@ -8,8 +8,6 @@
 <html lang="en">
 <head>
     <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -24,12 +22,8 @@
         }
     </style>
 </head>
-<body style="float: none;">
-    <br />
-    <br />
-    <br />
-
-    <table class="table" style="text-align:left; left: 0;">
+<body style="margin-top: 20px;">
+@*<table class="table" style="text-align:left; left: 0;">
 @foreach (var item in Model)
 {
 
@@ -52,7 +46,7 @@
             </tr>
 
 }
-    </table>
+    </table>*@
     <table class="table" style="left: 0; right: 0;">
         @foreach (var item in Model)
         {
@@ -76,9 +70,9 @@
 
 
     </table>
-    <div class="container" style="width:50%; float: none; left: 0; right: 0; margin: auto; height: auto;">
+    <div class="container" style="width:70%; float: none; left: 0; right: 0; margin: auto; height: auto;">
         <br>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="height: auto; width: 50%; margin: auto;">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="height: auto; width: 70%; margin: auto;">
             <!-- Indicators -->
             <ol id="sliders" class="carousel-indicators">
 

@@ -926,7 +926,7 @@ a.fc-more:hover {
 .fc-basic-view .fc-week-number,
 .fc-basic-view .fc-day-number {
 	padding: 2px;
-    color: white;
+    color: black !important;
     font-weight:bolder;
     letter-spacing: 1px;
 }
@@ -946,7 +946,7 @@ a.fc-more:hover {
 	min-width: 1.5em;
 	text-align: center;
 	background-color: #f2f2f2;
-	color: #808080;
+	color: black;
 }
 
 /* when week/day number have own column */
@@ -1365,7 +1365,7 @@ be a descendant of the grid when it is being dragged.
 .fc-list-item-title a {
 	/* every event title cell has an <a> tag */
 	text-decoration: none;
-	color: inherit;
+	color: black;
 }
 
 .fc-list-item-title a[href]:hover {

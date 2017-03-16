@@ -2,9 +2,7 @@
 <html>
 <head>
     <link href="~/Content/styleImages.css" rel="stylesheet" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="/lib/w3.css">
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/fullcalendarcss")
     @Scripts.Render("~/bundles/modernizr")
@@ -13,6 +11,9 @@
           position:fixed;
           bottom:0;
           width:100%;
+        }
+        .caret{
+            color: black;
         }
         .boxContainer {
             background-color:white;
@@ -80,7 +81,15 @@
                     <ul class="nav navbar-nav" style="text-align: left;">
                         <li>@Html.ActionLink("MY TRAINER", "Index", "Users", new { area = "" }, new { @class = "navbar-brand", id="title"})</li>
                         <li>@Html.ActionLink("Home", "Index", "Users", new { area = "" }, new { id="navBarText"})</li>
-                        <li>@Html.ActionLink("Your Schedule", "Index", "UserSchedules", new { area = "" }, new { id = "navBarText" })</li>
+                        <li class="dropdown" id="navBarText">
+                            <a class="dropdown-toggle" id="navBarText" data-toggle="dropdown" href="#">Profile<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("My Schedule", "Index", "UserSchedules", new { area = "" }, new { id = "navBarText" })</li>
+                                <li>@Html.ActionLink("My Meal Plan", "Index", "MealPlans", new { area = "" }, new { id = "navBarText" })</li>
+                                <li>@Html.ActionLink("My Pictures", "Index", "UserPhotos", new { area = "" }, new { id = "navBarText" })</li>
+                                <li>@Html.ActionLink("Update Profile", "Edit", "Goals", new { area = "" }, new { id = "navBarText" })</li>
+                            </ul>
+                        </li>
                     </ul>
 
                         @Html.Partial("_LoginPartial")
@@ -90,8 +99,9 @@
             </div>
         </div>
     </header>
+
+    @RenderBody()
     <div class="col-lg-12">
-            @RenderBody()
         <footer id="chat" style="width:100%; color: black; z-index: 1000;">
             <div class="dropup">
                 <button id="chat" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" onclick="box()">
